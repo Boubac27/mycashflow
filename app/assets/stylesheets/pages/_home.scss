@@ -1,1 +1,40 @@
 // Specific CSS for your home-page
+.homepage {
+  height: 100vh;
+  background-image: url("banner.jpg");
+  background-size: cover;
+  position: relative;
+
+  display:box;
+  align-items: center;
+  padding: 100px;
+}
+ .homebanner {
+  color: $gray;
+  height:400px;
+  width: 700px;
+  margin: auto;
+  background-color: white;
+  border-radius: 5px;
+  text-align: center;
+  border: 1px solid #808080;
+  box-shadow: 0 10px 14px rgba(0,0,0,.1);
+ }
+.findicones {
+  color:white;
+  font-size: bold;
+  display: flex;
+  text-align:center;
+  justify-content: space-around;
+  margin-left: auto;
+  margin-right: auto;
+}
+.btnaccount {
+  text-decoration: none;
+  color:white !important;
+  background-color:$orange;
+}
+.btnaccount a {
+  text-decoration: none;
+  color:white !important;
+}
