@@ -16,6 +16,9 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'nokogiri'
+gem 'rest-client'
+gem 'awesome_print'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
