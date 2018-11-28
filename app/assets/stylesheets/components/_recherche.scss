@@ -1,0 +1,30 @@
+.container {
+  margin-top: 100px;
+}
+
+.appt_image {
+  padding: 10px;
+  flex: 0 0 auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 150px;
+  border-radius: 2px;
+  border: 1px solid gray;
+}
+
+.legendes {
+  flex: 0 0 auto;
+}
+
+.parametres {
+  flex: 0 0 auto;
+}
+
+.appartement {
+  margin: 25px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
