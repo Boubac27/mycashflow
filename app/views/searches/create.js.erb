@@ -7,7 +7,7 @@ function displayResults() {
   <% @results.each do |result| %>
     container.insertAdjacentHTML('beforeend', `<%= j render 'result', prices: @prices %>`);
     marker = new mapboxgl.Marker()
-    .setLngLat([ `<%= prices[:lng] %>`, `<%= prices[:lat] %>` ])
+    .setLngLat([ `<%= result[:lng] %>`, `<%= result[:lat] %>` ])
     .addTo(map);
     markers.push(marker);
   <% end %>
