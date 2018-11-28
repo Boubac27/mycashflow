@@ -5,7 +5,11 @@ function displayResults() {
   let marker;
 
   <% @results.each do |result| %>
+<<<<<<< HEAD
     container.insertAdjacentHTML('beforeend', `<%= j render 'result', result: result %>`);
+=======
+    container.insertAdjacentHTML('beforeend', `<%= j render 'result', prices: @prices %>`);
+>>>>>>> 56165becf36ddf12984191deebc2afa584c30bf5
     marker = new mapboxgl.Marker()
     .setLngLat([ `<%= result[:lng] %>`, `<%= result[:lat] %>` ])
     .addTo(map);
