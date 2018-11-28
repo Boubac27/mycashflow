@@ -1,1 +1,52 @@
-<p><%= result[:price] %> - <%= result[:surface] %>m2<p>
+<div class="container">
+  <h1>Prices</h1>
+  <% @prices.each_with_index do |appt, index| %>
+    <% if index % 2 == 0 %>
+      <% bg_color = '#555555' %>
+    <% else %>
+      <% bg_color = '#999999' %>
+    <% end %>
+    <div class="appartement" style="background-color: <%= bg_color %>;">
+      <a href='<%= appt[:url] %>'>
+        <% if appt[:image].nil? %>
+          <div class="appt_image">
+          </div>
+        <% else %>
+          <div class="appt_image" style="background-image: url('<%= appt[:image] %>');">
+          </div>
+        <% end %>
+      </a>
+      <div class="legendes">
+        <div>
+          Prix
+        </div>
+        <div>
+          <h4>Rendement</h4>
+        </div>
+        <div>
+          Nombre de pièces
+        </div>
+        <div>
+          Surface
+        </div>
+      </div>
+      <div class="parametres">
+        <div>
+          <%= appt[:price] %> €
+        </div>
+        <div>
+          <% if user_signed_in? %>
+            <h4><%= appt[:returns].round(2) %> %</h4>
+          <% end %>
+        </div>
+        <div>
+          <%= appt[:rooms] %> pièces
+        </div>
+        <div>
+          <%= appt[:surface] %> m²
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
