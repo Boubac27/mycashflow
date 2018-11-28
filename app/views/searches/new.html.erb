@@ -1,13 +1,8 @@
 
-<body>
-  <br>
-  <br>
-  <br>
-  <br>
 <div class="log">
   <div class="login">
   <%= image_tag "logo.png", height: 400 %>
-  <%= simple_form_for [@user, @search] do |f| %>
+  <%= simple_form_for([current_user, @search], remote: true) do |f| %>
   <%= f.input :city %>
   <%= f.input :zipcode %>
   <%= f.input :budget %>
@@ -16,7 +11,6 @@
   <%= f.submit %>
 <% end -%>
 </div>
-</body>
 
 <div id="map" style="height: 300px; width: 600px"></div>
 
