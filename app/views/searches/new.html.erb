@@ -1,6 +1,19 @@
-<%= simple_form_for [@user, @search] do |f| %>
+<body>
+  <br>
+  <br>
+  <br>
+  <br>
+<div class="log">
+  <div class="login">
+  <%= image_tag "logo.png", height: 400 %>
+  <%= simple_form_for [@user, @search] do |f| %>
   <%= f.input :city %>
   <%= f.input :zipcode %>
   <%= f.input :budget %>
+  <div>
+<div class="form-actions">
   <%= f.submit %>
 <% end -%>
+</div>
+</body>
+
