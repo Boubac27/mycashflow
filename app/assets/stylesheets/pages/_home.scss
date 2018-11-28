@@ -37,21 +37,27 @@
   color:white !important;
 }
 .cardicones {
-  height: 300px;
-  width:400px;
-  background-color: white;
-  display:box;
-  border-radius: 5px;
-  line-height : 20px;
-  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-
-
+    height: 211px;
+    width: 368px;
+    background-color: white;
+    display: box;
+    border-radius: 5px;
+    line-height: 20px;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.07), 0 1px 0 0 rgba(0, 0, 0, 0.03);
+    display: inline-block;
+    text-align: center;
 }
+
 .cardicones h4 {
   color:$gray;
+
 }
 .cardicones p {
   color:#aaa5a5;
   margin-left: 10px;
   padding:10px;
+}
+
+image_tag{
+  border-radius:3px;
 }
