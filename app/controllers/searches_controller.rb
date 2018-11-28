@@ -6,6 +6,7 @@ class SearchesController < ApplicationController
 
   def create
     @results = Collecteur.new(search_params).collecter[:prices]
+    @prices = @results
     render 'create.js'
   end
 
