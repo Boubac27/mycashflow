@@ -10,35 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2018_11_27_161255) do
-=======
+
 ActiveRecord::Schema.define(version: 2018_11_28_110326) do
->>>>>>> 56165becf36ddf12984191deebc2afa584c30bf5
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-<<<<<<< HEAD
-  create_table "autocompletes", force: :cascade do |t|
-    t.string "address"
-    t.integer "street_number"
-    t.string "locality"
-    t.string "route"
-    t.string "administrative_area_level_1"
-    t.string "country"
-    t.integer "postal_code"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-=======
-  create_table "progresses", force: :cascade do |t|
-    t.integer "scale"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_progresses_on_user_id"
->>>>>>> 56165becf36ddf12984191deebc2afa584c30bf5
-  end
 
   create_table "results", force: :cascade do |t|
     t.text "url"
