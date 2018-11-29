@@ -30,3 +30,13 @@ body{
 .login .btn{
   color:$orange;
 }
+
+#map {
+  position: absolute;
+  top: 300px;
+}
+
+#waiting {
+  position: absolute;
+  top: 500px;
+}
