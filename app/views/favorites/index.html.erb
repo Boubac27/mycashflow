@@ -1,0 +1,14 @@
+<br>
+<br>
+<h1>My selection</h1>
+<div class="selection">
+ <% @favorites.each do |f| %>
+  <%= f.rendement %>
+  <%= f.price%>
+  <%= f.surface%>
+  <%= f.rooms%>
+  <% if f.urlimage.present? %>
+    <%= image_tag f.urlimage %>
+  <% end %>
+<%end%>
+</div>
