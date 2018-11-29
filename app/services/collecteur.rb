@@ -56,6 +56,7 @@ class Collecteur
 
   def search_category(categ_number, city, zipcode)
     url = "https://www.leboncoin.fr/recherche/?category=#{categ_number}&regions=22&location=#{city}_#{zipcode}"
+    RestClient.proxy = ENV['PROXY']
     html_file = RestClient.get(url, MHASH)
     html_doc = Nokogiri::HTML(html_file)
     @search_data = []
