@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'progresses/index'
   resources :autocompletes
   devise_for :users
   root to: 'pages#home'
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :searches
+    resources :progresses, only: :index
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
