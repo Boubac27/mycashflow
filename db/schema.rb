@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2018_11_29_162140) do
     t.datetime "updated_at", null: false
   end
 
+
   create_table "progresses", force: :cascade do |t|
     t.integer "scale"
     t.bigint "user_id"
@@ -67,7 +68,6 @@ ActiveRecord::Schema.define(version: 2018_11_29_162140) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "progresses", "users"
   add_foreign_key "results", "searches"
   add_foreign_key "searches", "users"
 end
