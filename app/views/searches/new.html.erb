@@ -1,4 +1,4 @@
-
+<h6><%= @user.id %></h6>
 <div class="log">
   <div class="login">
   <%= image_tag "logo.png", height: 400 %>
@@ -12,7 +12,18 @@
 <% end -%>
 </div>
 
+<div id="waiting">
+  <ul class="list-inline">
+    <% 15.times do |i| %>
+      <li><i class="fas fa-square-full" id=<%="p#{i}"%>></i></li>
+    <% end %>
+  </ul>
+
+</div>
+
 <div id="map" style="height: 300px; width: 600px"></div>
 
-<div id="results"></div>
+
+<div id="results">
+</div>
 

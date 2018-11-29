@@ -2,11 +2,15 @@ class SearchesController < ApplicationController
 
   def new
     @search = Search.new
+    @user = current_user
   end
 
   def create
-    @results = Collecteur.new(search_params).collecter[:prices]
+    @results_base = Collecteur.new(search_params, current_user).collecter[:prices]
+    @results = @results_base.sort_by { |appt| appt[:returns] }.reverse
     @prices = @results
+    @progress = Progress.where("user_id=?", current_user.id)
+    @progress.destroy_all
     render 'create.js'
   end
 
