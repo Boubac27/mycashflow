@@ -12,16 +12,13 @@ function update() {
   const user_id = document.querySelector('h6').innerText;
   const url = `http://localhost:3000/users/${user_id}/progresses`;
   fetch(url).then((response) => { return response.json();} ).then((data) => {
-    const squares = document.querySelectorAll('.fas .fa-square-full');
-    console.log(squares);
+    const squares = document.querySelectorAll('i');
     let counter = 0;
     squares.forEach((square) => {
-      if (counter < data) {
-        console.log("counter < data");
+      if (counter < data["scale"]) {
         square.style.color = "black"
       }
       else{
-        console.log("dans le else");
         square.style.color = "white"
       }
       counter += 1;
