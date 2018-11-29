@@ -20,7 +20,7 @@ class Collecteur
     @zipcode = params[:zipcode]
     @budget = params[:budget]
     @user = user
-    @progress = Progress.new(scale: 0)
+    @progress = Progress.new(scale: 0, blink: 0)
     @progress.user = @user
     @progress.save
   end

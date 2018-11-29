@@ -8,17 +8,22 @@
   <%= f.input :budget %>
   <div>
 <div class="form-actions">
-  <%= f.submit %>
+  <%= f.submit, input_html: { id: "newsearch" } %>
 <% end -%>
+</div>
+
+<div id="waiting">
+  <ul class="list-inline">
+    <% 15.times do |i| %>
+      <li><i class="fas fa-square-full" id=<%="p#{i}"%>></i></li>
+    <% end %>
+  </ul>
+
 </div>
 
 <div id="map" style="height: 300px; width: 600px"></div>
 
+
 <div id="results">
-  <ul class="list-inline">
-    <% 25.times do |i| %>
-      <li><i class="fas fa-square-full" id=<%="p#{i}"%>></i></li>
-    <% end %>
-  </ul>
 </div>
 
