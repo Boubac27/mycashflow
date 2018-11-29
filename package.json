@@ -9,6 +9,5 @@
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"
-  },
-  "proxy": "localhost:3000"
+  }
 }

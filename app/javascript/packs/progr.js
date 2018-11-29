@@ -11,7 +11,7 @@ const updateProgressBar = () => {
 
 function update() {
   const user_id = document.querySelector('h6').innerText;
-  const url = `http://localhost:3000/users/${user_id}/progresses`;
+  const url = `https://mycashflow1.herokuapp.com/users/${user_id}/progresses`;
   fetch(url).then((response) => { return response.json();} ).then((data) => {
     const squares = document.querySelectorAll('i');
     let counter = 0;
