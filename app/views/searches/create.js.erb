@@ -1,4 +1,5 @@
 function displayResults() {
+  window.clearInterval(waiting);
   markers.forEach(marker => marker.remove());
   const container = document.getElementById('results');
   container.innerHTML = '';

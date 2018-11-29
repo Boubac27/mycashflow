@@ -1,18 +1,37 @@
 
+<h6><%= @user.id %></h6>
 <div class="log">
   <div class="login">
   <%= image_tag "logo.png", height: 400 %>
   <%= simple_form_for([current_user, @search], remote: true) do |f| %>
-  <%= f.input :city %>
-  <%= f.input :zipcode %>
-  <%= f.input :budget %>
-  <div>
-<div class="form-actions">
-  <%= f.submit %>
-<% end -%>
+  <div id="f">
+    <div id="city">
+      <%= f.input :city, placeholder:"city", label: false %>
+    </div>
+    <div id="budget">
+      <%= f.input :budget, placeholder: "budget", label: false %>
+    </div>
+    <div class="form-actions ">
+      <%= f.submit class: "btn btn-warning" %>
+    </div>
+    <% end -%>
+  </div>
+</div>
+
+
+<div id="waiting">
+  <ul class="list-inline">
+    <% 15.times do |i| %>
+      <li><i class="fas fa-square-full" id=<%="p#{i}"%>></i></li>
+    <% end %>
+  </ul>
+
 </div>
 
 <div id="map" style="height: 300px; width: 600px"></div>
 
-<div id="results"></div>
+
+<div id="results">
+</div>
+
 
