@@ -4,7 +4,7 @@ const updateProgressBar = () => {
   const subm = document.querySelector('.form-actions > input');
   if (page_new) {
     subm.addEventListener('click', function(){
-      window.waiting = window.setInterval(update, 500);
+      window.waiting = window.setInterval(update, 1500);
     });
   }
 };
