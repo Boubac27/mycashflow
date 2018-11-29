@@ -1,12 +1,11 @@
-console.log("dans progr");
 
 const updateProgressBar = () => {
   const page_new = document.getElementById('waiting');
-  const subm = document.querySelector('.form-actions');
-  console.log(subm);
+  const subm = document.querySelector('.form-actions > input');
   if (page_new) {
-    console.log(page_new);
-    window.waiting = window.setInterval(update, 200);
+    subm.addEventListener('click', function(){
+      window.waiting = window.setInterval(update, 500);
+    });
   }
 };
 
@@ -30,7 +29,7 @@ function update() {
         millis = Date.now().toString();
         after_point = millis.substr(millis.length - 3);
         int_after_point = Number.parseInt(after_point, 10);
-        if (int_after_point < 200 || (int_after_point > 400 && int_after_point < 600) || (int_after_point > 800)) {
+        if (int_after_point < 500) {
           square.style.color = "black"
         }
         else {
