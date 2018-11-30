@@ -16,8 +16,6 @@ Favorite.create(user: bernard,
                 urlscrap: 'https://www.leboncoin.fr/vi/1531634442.htm/',
                 urlimage: 'https://img3.leboncoin.fr/ad-image/dd0992acc2f5b632d8a15ca5a5c37be7e085969c.jpg')
 
-<<<<<<< HEAD
-=======
 Favorite.create(user: bernard,
                 price: 325000,
                 rendement: 3.45,
@@ -25,7 +23,6 @@ Favorite.create(user: bernard,
                 surface: 55,
                 urlscrap: 'https://www.leboncoin.fr/ventes_immobilieres/1511562371.htm/',
                 urlimage: 'https://img0.leboncoin.fr/ad-image/e04eda6d3c71c8b4a0e764e7b2d9dca7a877fe85.jpg')
->>>>>>> 6d96cd4d9830d4489fcd14051af92aebee44a810
 
 puts "#{User.all.count} users !"
 puts "#{Favorite.all.count} favorites !"
