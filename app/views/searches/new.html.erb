@@ -1,21 +1,5 @@
-<<<<<<< HEAD
-<div class="log">
+  <div class="log">
   <div class="login">
-<%= simple_form_for [current_user, @search], remote: true do |f| %>
-  <%= f.input :city, input_html: { value: 'Lyon' } %>
-  <%= f.input :zipcode, input_html: { value: '69006' } %>
-  <%= f.input :budget, input_html: { value: 300_000 } %>
-  <%= f.submit %>
-<%end%>
-</div>
-</div>
-<div id="map" style="height: 300px; width: 600px"></div>
-<div id="results"></div>
-=======
-
-<div class="log">
-  <div class="login">
-  <%= image_tag "logo.png", height: 400 %>
   <%= simple_form_for([current_user, @search], remote: true) do |f| %>
   <div id="f">
     <div id="city">
@@ -44,18 +28,9 @@
 
 </div>
 
+<h1>hello</h1>
 <div id="map" style="height: 300px; width: 600px"></div>
 
-<<<<<<< HEAD
-=======
-
 <div id="results">
 </div>
 
->>>>>>> 3068273576b5709672790b9676ac36f1b31b8a77
-
-<div id="results">
-</div>
-
-
->>>>>>> 3068273576b5709672790b9676ac36f1b31b8a77

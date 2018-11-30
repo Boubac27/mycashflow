@@ -1,5 +1,7 @@
 .container-results-details {
-
+    position: absolute;
+    top: 90px;
+    left: 173px;
 
   .cards {
     display: flex;
@@ -70,6 +72,26 @@
 }
 
 
-.ask{
-  color:red;
+.ask {
+    color: gray;
+    margin: 26px;
+    font-size: 12px;
+}
+
+.yield {
+    /* border: 2px solid black; */
+    padding-bottom: 7px;
+    /* margin-bottom: 8px; */
+    margin: 106px;
+}
+
+.yield1{
+  border: 2px solid black;
+   padding-bottom: 7px;
+    /* margin-bottom: 8px; */
+    margin: 106px;
+      text-align:center;
+  background-color: $orange;
+  padding:12px;
+  color:white;
 }
