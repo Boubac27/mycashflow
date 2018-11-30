@@ -117,7 +117,7 @@
       const budget = document.getElementById('budget').value;
       const user_id = document.querySelector('h6').innerHTML;
       const token = document.getElementById('tok').value;
-      url = `https://mycashflow1.herokuapp.com/users/${user_id}/searches`;
+      url = `/users/${user_id}/searches`;
       let mhash = {};
       console.log(textarea_city);
       console.log(textarea_zipcode);
@@ -128,7 +128,7 @@
       mhash["authenticity_token"] = token;
       console.log(mhash);
       fetch(url, { method: "POST",
-        headers: { "Content-Type": "application/json", 'X-CSRF-Token': token },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(mhash)
       }).then((response) => {
         return response.text();
