@@ -1,8 +1,10 @@
 // Specific CSS for your home-page
 .homepage {
   height: 100vh;
-  background-image: url("banner.jpg");
-
+  background-image: image-url('banner.jpg');
+  background: linear-gradient (-225deg
+              rgba(0,0,0,0.4) 0%,
+              rgba(0,0,0,0.1) 40%);
   background-size: cover;
   position: relative;
   display:box;
