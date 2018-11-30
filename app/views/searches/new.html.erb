@@ -128,7 +128,7 @@
       mhash["authenticity_token"] = token;
       console.log(mhash);
       fetch(url, { method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", 'X-CSRF-Token': token },
         body: JSON.stringify(mhash)
       }).then((response) => {
         return response.text();
