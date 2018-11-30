@@ -67,7 +67,19 @@ class Collecteur
 
   def search_category(categ_number, city, zipcode)
     @progress = Progress.where("user_id=?", @user.id).first
+<<<<<<< HEAD
     url = "https://www.leboncoin.fr/recherche/?category=#{categ_number}&regions=22&location=#{city}_#{zipcode}"
+=======
+    puts "parameters"
+    ap city
+    ap zipcode
+    ap @budget
+    if zipcode != ""
+      url = "https://www.leboncoin.fr/recherche/?category=#{categ_number}&regions=22&location=#{city}_#{zipcode}"
+    else
+      url = "https://www.leboncoin.fr/recherche/?category=#{categ_number}&regions=22&location=#{city}"
+    end
+>>>>>>> 6d96cd4d9830d4489fcd14051af92aebee44a810
     RestClient.proxy = ENV['PROXY']
     html_file = RestClient.get(url, MHASH)
     html_doc = Nokogiri::HTML(html_file)

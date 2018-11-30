@@ -1,3 +1,4 @@
+
 <br>
 <br>
 <h1>My selection</h1>
@@ -12,3 +13,36 @@
   <% end %>
 <%end%>
 </div>
+
+<div class="favselection">
+  <h1>My selection</h1>
+  <% @favorites.each do |f| %>
+    <div class="favcard">
+      <div class="favrend">
+        <p>Potential yield <%= f.rendement%> % </p>
+      </div>
+
+      <div class="favprice">
+        <p>Sales price: <%= f.price%> €</p>
+      </div>
+
+      <div class="favsurface">
+        <p>Surface :<%= f.surface%> m2 </p>
+      </div>
+
+      <div class="favroom">
+       <p> <%= f.rooms%> rooms </p>
+      </div>
+
+      <div>
+        <%= link_to '<i class="fas fa-trash-alt favtrash"></i>'.html_safe, favorite_path(f), method: :delete %>
+      </div>
+      <div>
+        <% if f.urlimage.present? %>
+         <%= image_tag f.urlimage, class: "favimage"%>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+

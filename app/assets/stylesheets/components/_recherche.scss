@@ -5,7 +5,37 @@
 
 #results {
   position: absolute;
+
   top: 970px;
+
+}
+
+.formulaire {
+  position: absolute;
+  top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-inl {
+  flex: 0 0 auto;
+  padding: 30px;
+}
+
+input {
+  border-radius: 5px;
+}
+
+textarea {
+  width: 150px;
+  height: 30px;
+  border-radius: 5px;
+}
+
+#map2 {
+  position: absolute;
+  top: 150px;
 }
 
 .appt_image {
