@@ -7,7 +7,7 @@ const displayAnimation = () => {
   const CanvasXSize = 1518; //800
   const CanvasYSize = 150; //200
   const speed = 50; // plus elle est basse, plus c'est rapide
-  const scale = 1.05;
+  const scale = 0.5;
   const y = -4.5; // décalage vertical
 
   // Programme principal
