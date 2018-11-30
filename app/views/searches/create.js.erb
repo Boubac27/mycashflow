@@ -1,16 +1,17 @@
 function displayResults() {
+  console.log("displayResults");
   //window.clearInterval(waiting);
-  markers.forEach(marker => marker.remove());
+  //markers.forEach(marker => marker.remove());
   const container = document.getElementById('results');
   container.innerHTML = '';
   let marker;
 
   <% @results.each do |result| %>
     container.insertAdjacentHTML('beforeend', `<%= j render 'result', result: result %>`);
-    marker = new mapboxgl.Marker()
-    .setLngLat([ `<%= result[:lng] %>`, `<%= result[:lat] %>` ])
-    .addTo(map);
-    markers.push(marker);
+    //marker = new mapboxgl.Marker()
+    //.setLngLat([ `<%= result[:lng] %>`, `<%= result[:lat] %>` ])
+    //.addTo(map);
+    //markers.push(marker);
   <% end %>
 }
 
