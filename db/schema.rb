@@ -40,6 +40,12 @@ ActiveRecord::Schema.define(version: 2018_11_29_162140) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
+  create_table "progresses", force: :cascade do |t|
+    t.integer "scale"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_progresses_on_user_id"
+  end
+
   create_table "results", force: :cascade do |t|
     t.text "url"
     t.integer "deductions"
@@ -75,6 +81,7 @@ ActiveRecord::Schema.define(version: 2018_11_29_162140) do
   end
 
   add_foreign_key "favorites", "users"
+  add_foreign_key "progresses", "users"
   add_foreign_key "results", "searches"
   add_foreign_key "searches", "users"
 end

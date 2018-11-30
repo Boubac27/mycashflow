@@ -13,7 +13,7 @@
       <!-- Links when logged in -->
       <i class=""></i>
       <%= link_to "", new_user_search_path(current_user), class: "fas fa-search navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "My Selection", favorites_index_path , class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "My Selection", favorites_path , class: "navbar-wagon-item navbar-wagon-link" %>
       <div class="navbar-wagon-item navbar-wagon-link logbuton">
               <%= link_to destroy_user_session_path, method: :delete do %>
                <%= t(".sign_out", default: "Log out") %>
