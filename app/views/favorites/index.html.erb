@@ -8,7 +8,7 @@
         <% @favorites.each do |f| %>
           <div class="favcard">
             <div class="favrend">
-              <p>Potential yield <%= f.rendement%> % </p>
+              <p>Potential yield <%= f.rendement.round(2)%>%</p>
             </div>
 
             <div class="favprice">
@@ -23,6 +23,9 @@
              <p> <%= f.rooms%> rooms </p>
             </div>
 
+            <div class="favcity">
+              <p> <%= f.city%> </p>
+            </div>
             <div>
               <%= link_to '<i class="fas fa-trash-alt favtrash"></i>'.html_safe, favorite_path(f),data: {:confirm => 'Are you sure?'}, method: :delete ,data: {:confirm => 'Are you sure?'}%>
 
