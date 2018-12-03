@@ -2,6 +2,12 @@ class FavoritesController < ApplicationController
   def index
     @favorites = Favorite.where(user: current_user)
     @favorites = Favorite.all
+    @markers = @favorites.map do |favorite|
+      {
+        lat: favorite.lat,
+        lng: favorite.long
+      }
+    end
   end
 
   def show
