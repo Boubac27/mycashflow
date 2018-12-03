@@ -1,7 +1,13 @@
-body{
+body {
   position:relative;
   margin:0;
   height: 100vh;
+}
+
+.log {
+  height: 100vh;
+  background-image: image-url('banner.jpg');
+  background-size: cover;
 }
 
 .login {
@@ -22,15 +28,20 @@ body{
     padding: 32px;
 }
 
-.form-actions{
+.form-actions {
   text-align: center;
   color:#aaa5a5
 }
 
-.login .btn{
+.login .btn {
   color:#3b3b3b;
 }
 
-#map {
+#forgot-btn .btn {
+  font-size:14px;
 }
 
+#render{
+  margin:15px;
+  padding:20px;
+}
