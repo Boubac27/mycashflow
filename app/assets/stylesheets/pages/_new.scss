@@ -1,8 +1,6 @@
 body{
   position:relative;
   margin:0;
-  background-image: url("banner.jpg");
-  background-size: cover;
   height: 100vh;
 }
 
@@ -34,12 +32,8 @@ body{
 }
 
 #map {
-  position: absolute;
-  top: 400px;
 }
 
 #waiting {
   position: absolute;
-  top: 900px;
-}
 

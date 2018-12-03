@@ -1,39 +1,34 @@
 <h6><%= current_user.id %></h6>
-    <div class="formulaire">
-      <input id="tok" name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-      <div class="form-inl">
-        <input id="budget" class="controls" type="number" placeholder="Budget">
-      </div>
-      <div class="form-inl">
-        <textarea id="city"></textarea>
-      </div>
-      <div class="form-inl">
-        <textarea id="zipcode"></textarea>
-      </div>
-      <div class="form-inl">
-        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-      </div>
-      <div class="form-inl">
-        <input type="submit" id="button">
-      </div>
-
+<form action="<%= user_searches_path(current_user) %>" method="get">
+  <div class="formulaire">
+    <div class="form-inl">
+      <input id="budget" class="controls" name="search[budget]" type="number" placeholder="Budget">
     </div>
+    <div class="form-inl">
+      <textarea name="search[city]" id="city"></textarea>
+    </div>
+    <div class="form-inl">
+      <textarea name="search[zipcode]" id="zipcode"></textarea>
+    </div>
+    <div class="form-inl">
+      <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    </div>
+    <div class="form-inl">
+      <input type="submit" id="button">
+    </div>
+  </div>
+</form>
 
-<!-- <div class="put-map-right"> -->
+<div class="createpage">
+  <%= image_tag "logo.png", height: 200 %>
 
+  <div id="map" style="height: 300px; width: 600px"></div>
 
-  <!-- <div id="map" style="height: 300px; width: 600px"></div> -->
-  <br>
-  <br>
-  <br>
-  <br>
-  <div id="results"></div>
-</div>
-
-<div id="waiting">
-  <ul class="list-inline">
-    <li><i class="fas fa-square-full"></i></li>
-  </ul>
+  <div id="results">
+    <% @results.each do |result| %>
+      <%= render 'result', result: result %>
+    <% end %>
+  </div>
 </div>
 
 <script>
@@ -110,33 +105,6 @@
         }
       });
       map.fitBounds(bounds);
-    });
-    document.getElementById('button').addEventListener('click', function(evt) {
-      evt.preventDefault();
-      console.log("bouton clique");
-      const textarea_city = document.getElementById('city').value;
-      const textarea_zipcode = document.getElementById('zipcode').value;
-      const budget = document.getElementById('budget').value;
-      const user_id = document.querySelector('h6').innerHTML;
-      const token = document.getElementById('tok').value;
-      url = `/users/${user_id}/searches`;
-      let mhash = {};
-      console.log(textarea_city);
-      console.log(textarea_zipcode);
-      console.log(budget);
-      mhash["city"] = textarea_city;
-      mhash["zipcode"] = textarea_zipcode;
-      mhash["budget"] = budget;
-      mhash["authenticity_token"] = token;
-      console.log(mhash);
-      fetch(url, { method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(mhash)
-      }).then((response) => {
-        return response.text();
-      }).then((data) => {
-        eval(data);
-      });
     });
   }
 </script>
