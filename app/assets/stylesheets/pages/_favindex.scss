@@ -52,4 +52,20 @@ width:300px;
   position: absolute;
   bottom:25px;
   right:25px;
+  color:$orange;
+}
+
+.favtrash:hover{
+  font-size:20px;
+}
+
+.faveyes{
+  position: absolute;
+  bottom:25px;
+  right:70px;
+  color:$orange;
+}
+
+.faveyes:hover{
+  font-size:20px;
 }
