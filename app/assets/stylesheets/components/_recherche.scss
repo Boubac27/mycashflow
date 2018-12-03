@@ -59,3 +59,10 @@ textarea {
   align-items: center;
 }
 
+.fa-heart:before {
+  color:$orange;
+}
+
+.fa-heart:hover{
+  font-size:20px;
+}
