@@ -1,0 +1,69 @@
+
+.favcard {
+    height: 250px;
+    width: 600px;
+    background-color: white;
+    display: box;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.07), 0 1px 0 0 rgba(0, 0, 0, 0.03);
+    text-align: center;
+    position: relative;
+    margin-bottom: 10px;
+
+}
+
+.favrend {
+  position: absolute;
+  top:20px;
+  left: 320px;
+
+}
+.favprice {
+position: absolute;
+  top:50px;
+  left: 320px;
+}
+.favsurface {
+position: absolute;
+  top:80px;
+  left: 320px;
+}
+.favroom {
+position: absolute;
+  top:110px;
+  left: 320px;
+}
+.favimage {
+  position: absolute;
+  left:5px;
+  top:20px;
+height: 200px;
+width:300px;
+}
+.favtrash {
+  position: absolute;
+  bottom:25px;
+  right:25px;
+  color:$orange;
+}
+
+.favtrash:hover{
+  font-size:20px;
+}
+
+.faveyes{
+  position: absolute;
+  bottom:25px;
+  right:70px;
+  color:$orange;
+}
+
+.faveyes:hover{
+  font-size:20px;
+}
+
+.favselection {
+  justify-content: space-around;
+  align-items:center;
+
+}
