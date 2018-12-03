@@ -10,10 +10,23 @@ class FavoritesController < ApplicationController
     end
   end
 
+  # GET /favorites/:id
   def show
+    @favorite = Favorite.find(params[:id])
   end
 
   def create
+
+  end
+
+  def update
+    p "dans update"
+    @favorite = Favorite.find(params[:id])
+    if @favorite.update(favorite_params)
+      redirect_to favorite_path(@favorite)
+    else
+      p "bug!!!"
+
     scraped = params[:scraped]
     elements = scraped.split("&")
     hash_fav = {}
@@ -45,8 +58,21 @@ class FavoritesController < ApplicationController
 
   private
 
+  def favorite_params
+    params.require(:favorite).permit(
+      :property_taxe,
+      :insurance,
+      :total_rent,
+      :monthy_loan,
+      :rental_charges,
+      :total_rent,
+      :work
+    )
+  end
+
   def index_params
     params.require(:favorites).permit(:price)
   end
+
 
 end
