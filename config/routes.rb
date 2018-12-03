@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :favorites
   get 'pages/autocomplete', to: 'pages#autocomplete'
+  get 'results_details', to: 'results_details#results_details'
 
   resources :users do
     resources :searches

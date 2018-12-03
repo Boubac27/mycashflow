@@ -1,2 +1,73 @@
-<h1>Favorites#show</h1>
-<p>Find me in app/views/favorites/show.html.erb</p>
+
+ <div class="container container-results-details">
+      <h2 class="text-center">
+The return on a real estate investment</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="card-body" style="background-color: white;">
+            <span class="card-category">Gross rental yield</span>
+            <div class="card-description">
+              <br>
+              <p>
+The gross yield is the simplest to determine, and for good reason: it does not take into account the rental charges paid by the lessor or its taxation. Therefore, it is sufficient to report the annual rent at the acquisition price to identify the gross profitability of the real estate investment.</p>
+                            <p>
+<strong>Example of calculating the gross yield:</strong> an investor leases an apartment at a monthly rent of 800 euros including charges. He paid his real estate purchase 200,000 euros, including acquisition costs. The gross profitability of the property is therefore:
+
+(800x12 / 200,000) x 100 = 4.80%.</p>
+        <form action="/ma-page-de-traitement" method="post">
+
+            <div class="yield"><strong>Yield : 6 %</strong></div>
+            </div>
+          </div>
+        </form>
+
+        </div>
+        <div class="card">
+          <div class="card-body" style="background-color: white;">
+            <span class="card-category">Net rental yield</span>
+            <div class="card-description">
+              <br>
+              <p>
+To go further, investors must be interested in the profitability of their rental taking into account the costs and charges they must bear as such, such as property tax. In addition, the purchase price used to calculate the yield is increased by the cost of the mortgage loan contracted to finance the investment.</p>
+        <form action="/ma-page-de-traitement" method="post">
+            <div class="ask">
+                <label for="name">Works and maintenance expenses</label>
+                <input type="text" id="name" name="user_name">
+                <hr>
+                <label  for="name">Rental management fee</label>
+                <input type="text" id="name" name="user_name">
+                <hr>
+                <label  for="name">Insurance charges against unpaid rent (GLI)</label>
+                <input type="text" id="name" name="user_name">
+          <!--   <div class="yield1"><strong>Yield : 4 %</strong></div> -->
+            </div>
+        </form>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body" style="background-color: white;">
+            <span class="card-category">Net tax return</span>
+            <div class="card-description">
+              <br>
+              <p>
+To calculate the return on your investment as closely as possible, the lessor must also take into consideration his taxes. This is the principle of "net-net" return or net of taxation: it takes into account the tax burden borne by the investor, that is to say the taxation of property income.</p>
+        <form action="/ma-page-de-traitement" method="post">
+            <div class="ask">
+                <label for="name">Credit repayment (/ year)</label>
+                <input type="text" id="name" name="user_name">
+                <hr>
+                <label  for="name">Taxes</label><br>
+                <input type="text" id="name" name="user_name">
+                <hr>
+                <label  for="name">Estimated rent</label><br>
+                <input type="text" id="name" name="user_name">
+           <!--  <div class="yield2"><strong>Yield : 2.43 %</strong></div> -->
+            </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
