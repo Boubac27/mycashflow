@@ -109,6 +109,8 @@ class Collecteur
         appt[:surface] = surface[0]["value"] if !surface[0].nil?
         appt[:lat] = ad["location"]["lat"]
         appt[:lng] = ad["location"]["lng"]
+        appt[:city] = city
+        appt[:zipcode] = zipcode
         @search_data << appt
       end
     end
