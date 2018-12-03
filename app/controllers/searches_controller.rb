@@ -4,8 +4,10 @@ class SearchesController < ApplicationController
     if params[:search].present?
       @results_base = Collecteur.new(search_params, current_user).collecter[:prices]
       @results = @results_base.sort_by { |appt| appt[:returns] }.reverse
+      ap @results
     else
       @results = []
+      ap @results
     end
   end
 
@@ -17,6 +19,8 @@ class SearchesController < ApplicationController
   def create
     @results_base = Collecteur.new(search_params, current_user).collecter[:prices]
     @results = @results_base.sort_by { |appt| appt[:returns] }.reverse
+    puts "Create"
+    ap @results
     @prices = @results
     @progress = Progress.where("user_id=?", current_user.id)
     @progress.destroy_all

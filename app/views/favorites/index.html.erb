@@ -20,9 +20,7 @@
       </div>
 
       <div>
-<<<<<<< HEAD
         <%= link_to '<i class="fas fa-trash-alt favtrash"></i>'.html_safe, favorite_path(f),data: {:confirm => 'Are you sure?'}, method: :delete ,data: {:confirm => 'Are you sure?'}%>
-=======
 
         <%= link_to '<i class="fas fa-trash-alt favtrash"></i>'.html_safe, favorite_path(f), method: :delete %>
 
@@ -32,7 +30,6 @@
       <div>
         <%= link_to '<i class="fas fa-trash-alt favtrash"></i>'.html_safe, favorite_path(f), method: :delete, data: {:confirm => 'Are you sure?'} %>
 
->>>>>>> 650a82ebb6b8420ebe738f70807c2e01ad360457
       </div>
       <div>
         <% if f.urlimage.present? %>
