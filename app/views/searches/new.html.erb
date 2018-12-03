@@ -1,14 +1,10 @@
+<h1>New.HTML.erb</h1>
+
 <h6><%= current_user.id %></h6>
     <div class="formulaire">
       <input id="tok" name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
       <div class="form-inl">
-        <input id="budget" class="controls" type="number" placeholder="Budget">
-      </div>
-      <div class="form-inl">
-        <textarea id="city"></textarea>
-      </div>
-      <div class="form-inl">
-        <textarea id="zipcode"></textarea>
+        <input id="budget" class="controls" type="number" placeholder="Budget Max">
       </div>
       <div class="form-inl">
         <input id="pac-input" class="controls" type="text" placeholder="Search Box">
@@ -17,6 +13,13 @@
         <input type="submit" id="button">
       </div>
 
+      <div class="form-inl">
+        <textarea id="zipcode"></textarea>
+      </div>
+
+      <div class="form-inl">
+        <textarea id="city"></textarea>
+      </div>
     </div>
 
 <!-- <div class="put-map-right"> -->
@@ -135,7 +138,7 @@
       }).then((response) => {
         return response.text();
       }).then((data) => {
-        console.log(data);
+        //console.log(data);
         eval(data);
       });
     });
@@ -149,3 +152,8 @@ async defer></script>
 
 <div id="map2" style="height: 0px; width: 600px"></div>
 
+<script>
+  function soumettre() {
+    document.getElementById('bouton').submit();
+  }
+</script>

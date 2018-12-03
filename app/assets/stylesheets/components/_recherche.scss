@@ -19,9 +19,22 @@
 
 input {
   border-radius: 5px;
+  color:#3b3b3b;
+}
+
+#button{
+  background-color:$orange;
+}
+
+#button:hover{
+  font-size:19px;
+  background-color:#e37718;
+  color:#4f4848;
+  opacity:0.9;
 }
 
 textarea {
+  display:none;
   width: 150px;
   height: 30px;
   border-radius: 5px;
@@ -46,6 +59,7 @@ textarea {
 
 .legendes {
   flex: 0 0 auto;
+  padding-bottom:25px;
 }
 
 .parametres {
@@ -59,3 +73,10 @@ textarea {
   align-items: center;
 }
 
+.fa-heart:before {
+  color:$orange;
+}
+
+.fa-heart:hover{
+  font-size:20px;
+}

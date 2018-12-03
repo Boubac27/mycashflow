@@ -1,0 +1,21 @@
+.main-container-selection {
+  width: 100%;
+  margin-top: 70px;
+  background-image: image-url('selection2.jpg');
+  background-size:700px;
+
+}
+
+#map {
+  width: 100%;
+  height: calc(100vh - 70px);
+}
+
+.sticky {
+  position: sticky !important; /* !important to override Gmaps inline CSS */
+  top: 70px !important;
+}
+.rowcards {
+  display:flex;
+  justify-content: space-around;
+}
