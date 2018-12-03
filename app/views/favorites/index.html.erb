@@ -1,42 +1,63 @@
+<div class="main-container-selection">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 rowcards">
 
-<div class="favselection">
-  <h1>My selection</h1>
-  <% @favorites.each do |f| %>
-    <div class="favcard">
-      <div class="favrend">
-        <p>Potential yield <%= f.rendement%> % </p>
-      </div>
+      <div class="favselection">
 
-      <div class="favprice">
-        <p>Sales price: <%= f.price%> €</p>
-      </div>
+        <h1>My selection</h1>
+        <% @favorites.each do |f| %>
+          <div class="favcard">
+            <div class="favrend">
+              <p>Potential yield <%= f.rendement%> % </p>
+            </div>
 
-      <div class="favsurface">
-        <p>Surface :<%= f.surface%> m2 </p>
-      </div>
+            <div class="favprice">
+              <p>Sales price: <%= f.price%> €</p>
+            </div>
 
-      <div class="favroom">
-       <p> <%= f.rooms%> rooms </p>
-      </div>
+            <div class="favsurface">
+              <p>Surface :<%= f.surface%> m2 </p>
+            </div>
 
-      <div>
-        <%= link_to '<i class="fas fa-trash-alt favtrash"></i>'.html_safe, favorite_path(f),data: {:confirm => 'Are you sure?'}, method: :delete ,data: {:confirm => 'Are you sure?'}%>
+            <div class="favroom">
+             <p> <%= f.rooms%> rooms </p>
+            </div>
 
-        <%= link_to '<i class="fas fa-trash-alt favtrash"></i>'.html_safe, favorite_path(f), method: :delete %>
+            <div>
+              <%= link_to '<i class="fas fa-trash-alt favtrash"></i>'.html_safe, favorite_path(f),data: {:confirm => 'Are you sure?'}, method: :delete ,data: {:confirm => 'Are you sure?'}%>
 
-        <%= link_to '<i class="fas fa-eye faveyes"></i>'.html_safe, favorite_path(f)%>
-      </div>
+              <%= link_to '<i class="fas fa-trash-alt favtrash"></i>'.html_safe, favorite_path(f), method: :delete %>
 
-      <div>
-        <%= link_to '<i class="fas fa-trash-alt favtrash"></i>'.html_safe, favorite_path(f), method: :delete, data: {:confirm => 'Are you sure?'} %>
+              <%= link_to '<i class="fas fa-eye faveyes"></i>'.html_safe, favorite_path(f)%>
+            </div>
 
-      </div>
-      <div>
-        <% if f.urlimage.present? %>
-         <%= image_tag f.urlimage, class: "favimage"%>
+            <div>
+              <%= link_to '<i class="fas fa-trash-alt favtrash"></i>'.html_safe, favorite_path(f), method: :delete, data: {:confirm => 'Are you sure?'} %>
+
+            </div>
+            <div>
+              <% if f.urlimage.present? %>
+               <%= image_tag f.urlimage, class: "favimage"%>
+              <% end %>
+            </div>
+          </div>
         <% end %>
+
       </div>
+
+
     </div>
-  <% end %>
+    <div class="col-xs-12 col-md-6 sticky">
+      <div id="map"></div>
+
+
+    </div>
+  </div>
 </div>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZuR-94uFzg2VuikctpXZHBOcFcuX0Wzo&libraries=places&callback=initMap" async defer></script>
+
+
+
 
