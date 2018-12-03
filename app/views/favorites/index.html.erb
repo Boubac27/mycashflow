@@ -19,7 +19,11 @@
       </div>
 
       <div>
-        <%= link_to '<i class="fas fa-trash-alt favtrash"></i>'.html_safe, favorite_path(f), method: :delete %>
+        <%= link_to '<i class="fas fa-eye faveyes"></i>'.html_safe, favorite_path(f)%>
+      </div>
+
+      <div>
+        <%= link_to '<i class="fas fa-trash-alt favtrash"></i>'.html_safe, favorite_path(f), method: :delete, data: {:confirm => 'Are you sure?'} %>
       </div>
       <div>
         <% if f.urlimage.present? %>
