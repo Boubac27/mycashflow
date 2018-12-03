@@ -25,6 +25,7 @@
   <div id="map" style="height: 300px; width: 600px"></div>
 
   <div id="results">
+    <h1><%= @results.size %></h1>
     <% @results.each do |result| %>
       <%= render 'result', result: result %>
     <% end %>

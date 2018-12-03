@@ -20,6 +20,7 @@
       </div>
 
       <div>
+        <%= link_to '<i class="fas fa-trash-alt favtrash"></i>'.html_safe, favorite_path(f),data: {:confirm => 'Are you sure?'}, method: :delete ,data: {:confirm => 'Are you sure?'}%>
 
         <%= link_to '<i class="fas fa-trash-alt favtrash"></i>'.html_safe, favorite_path(f), method: :delete %>
 

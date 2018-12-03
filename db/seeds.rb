@@ -6,23 +6,28 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-bernard = User.create(email: 'bernard@gmail.com', password: 'azerty')
+boubacar = User.create(email: 'boubacar@gmail.com', password: 'azerty')
 
-Favorite.create(user: bernard,
-                price: 85000,
-                rendement: 2.45,
-                rooms: 1,
-                surface: 11,
-                urlscrap: 'https://www.leboncoin.fr/vi/1531634442.htm/',
-                urlimage: 'https://img3.leboncoin.fr/ad-image/dd0992acc2f5b632d8a15ca5a5c37be7e085969c.jpg')
+Favorite.create(user: boubacar,
+                price: 142000,
+                rendement: 8.02,
+                rooms: 3,
+                surface: 64,
+                urlscrap: 'https://www.leboncoin.fr/ventes_immobilieres/1532112317.htm/',
+                urlimage: 'https://img5.leboncoin.fr/ad-image/76bb00fa15f2be3ec6b385a8e8b55690745b6ff3.jpg',
+                lat: 44.372,,
+                long: 4.64441)
 
-Favorite.create(user: bernard,
-                price: 325000,
-                rendement: 3.45,
-                rooms: 2,
-                surface: 55,
-                urlscrap: 'https://www.leboncoin.fr/ventes_immobilieres/1511562371.htm/',
-                urlimage: 'https://img0.leboncoin.fr/ad-image/e04eda6d3c71c8b4a0e764e7b2d9dca7a877fe85.jpg')
+
+Favorite.create(user: boubacar,
+                price: 239000,
+                rendement: 6.40,
+                rooms: 3,
+                surface: 79,
+                urlscrap: 'https://www.leboncoin.fr/ventes_immobilieres/1532077853.htm/',
+                urlimage: 'https://img4.leboncoin.fr/ad-image/101aaf8e242d53ba8bbfd3a186f7c538dedbd71c.jpg'
+                lat: 45.8127166804,
+                long: 5.8446052441))
 
 puts "#{User.all.count} users !"
 puts "#{Favorite.all.count} favorites !"
