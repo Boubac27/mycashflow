@@ -37,6 +37,13 @@
     <div>
       <%= result[:surface] %> m²
     </div>
-      <i class="far fa-heart"></i>
+    <% scraped = "urlscrap=#{result[:url]}&urlimage=#{result[:image]}&price=#{result[:price]}&rendement=#{result[:returns]}&rooms=#{result[:rooms]}&surface=#{result[:surface]}&user_id=#{current_user.id}&lat=#{result[:lat]}&long=#{result[:lng]}&city=#{result[:city]}&zipcode=#{result[:zipcode]}" %>
+    <form action='/favorites' method='POST'>
+      <%= hidden_field_tag :scraped, scraped %>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <button type='submit'><i class='far fa-heart'></i></button>
+    </form>
   </div>
 </div>
+
+
