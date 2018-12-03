@@ -22,6 +22,7 @@ class SearchesController < ApplicationController
     puts "Create"
     ap @results
     @prices = @results
+    UserMailer.welcome(current_user, @results).deliver_now
     @progress = Progress.where("user_id=?", current_user.id)
     @progress.destroy_all
     render 'create.js'
@@ -35,5 +36,4 @@ class SearchesController < ApplicationController
   def search_params
     params.require(:search).permit(:city, :zipcode, :budget)
   end
-
 end
