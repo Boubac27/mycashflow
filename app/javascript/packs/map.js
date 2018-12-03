@@ -1,14 +1,16 @@
-import mapboxgl from 'mapbox-gl';
-mapboxgl.accessToken = 'pk.eyJ1Ijoic3RlcG1pIiwiYSI6ImNqcDEwbjc1bTJqZXkzcXMzdmp6eXgyYjEifQ.04zRl-cA0VHPErxPv-Q9pw';
-window.mapboxgl = mapboxgl;
+import GMaps from 'gmaps/gmaps.js';
 
-const displayMap = () => {
-  window.map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v9',
-    center: [ 4.84977, 45.76931 ],
-    zoom: 12
-  });
+const mapElement = document.getElementById('map');
+if (mapElement) { // don't try to build a map if there's no div#map to inject in
+  const map = new GMaps({ el: '#map', lat: 0, lng: 0 });
+  const markers = JSON.parse(mapElement.dataset.markers);
+  map.addMarkers(markers);
+  if (markers.length === 0) {
+    map.setZoom(2);
+  } else if (markers.length === 1) {
+    map.setCenter(markers[0].lat, markers[0].lng);
+    map.setZoom(14);
+  } else {
+    map.fitLatLngBounds(markers);
+  }
 }
-
-export { displayMap };
