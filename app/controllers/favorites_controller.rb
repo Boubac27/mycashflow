@@ -10,7 +10,7 @@ class FavoritesController < ApplicationController
     end
   end
 
-  # GET /favorites/:id
+  # GET /favorites/:id/
   def show
     @favorite = Favorite.find(params[:id])
   end
