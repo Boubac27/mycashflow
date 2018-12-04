@@ -33,7 +33,7 @@ class FavoritesController < ApplicationController
     end
     @fav = Favorite.new(hash_fav)
     if @fav.save
-      redirect_to favorites_path
+
     else
       ap "bug"
     end
@@ -69,3 +69,4 @@ class FavoritesController < ApplicationController
     params.require(:favorites).permit(:price)
   end
 end
+
