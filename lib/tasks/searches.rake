@@ -11,14 +11,17 @@ namespace :searches do
 
       # Get only results from last 24 hours
 
-      results[:prices].select do |result|
-        # ap result
+      new_results = results[:prices].select do |result|
+      # ap result
         result[:publication_date].to_date > 1.day.ago
       end
-        binding.pry
+
+      # UserMailer.welcome(search.user, new_results).deliver_now
+      # binding.pry
       # Send this results to user
 
       # Send email with results
+      UserMailer.welcome(search.user, new_results).deliver_now
     end
   end
 end
