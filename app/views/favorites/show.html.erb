@@ -1,7 +1,8 @@
 
  <div class="container container-results-details">
-      <h2 class="text-center">
-The return on a real estate investment</h2>
+      <p class="text-center">
+A rental investment of <%= @favorite.price.round(0)%> € for a surface of <%= @favorite.surface.round(0)%> m², the potential profitability is to <%= @favorite.rendement.round(2)%> %<br><a class="btn btn-warning" href='<%= @favorite.urlscrap %>'> View Ad</a></p>
+
       <div class="cards">
         <div class="card">
           <div class="card-body" style="background-color: white;">
@@ -15,7 +16,7 @@ The gross yield is the simplest to determine, and for good reason: it does not t
 
 (800x12 / 200,000) x 100 = 4.80%.</p>
 
-            <div class="yield"><strong>Potential Yield : <%= @favorite.rendement %></strong></div>
+            <div class="yield"><strong>Potential Yield : <%= @favorite.rendement.round(2) %></strong></div>
             </div>
           </div>
         </div>
@@ -33,9 +34,9 @@ To go further, investors must be interested in the profitability of their rental
               <%= f.input :insurance %>
               <%= f.input :total_rent %>
               <%= f.input :work %>
-              <%= f.button :submit %>
+              <%= f.button :submit, "Simulator", class: "btn btn-warning" %>
             <% end %>
-            <div class="rdt"><strong>Potential Net Rental Yield : <%= @favorite.net_rental_yield %></strong></div>
+            <div class="rdt"><strong>Potential Net Rental Yield : <%= @favorite.net_rental_yield.round(2) %></strong></div>
             </div>
 
 
@@ -55,10 +56,10 @@ To calculate the return on your investment as closely as possible, the lessor mu
               <%= f.input :monthy_loan %>
               <%= f.input :rental_charges %>
               <%= f.input :total_rent %>
-              <%= f.button :submit %>
+              <%= f.button :submit, "Simulator", class: "btn btn-warning" %>
             <% end %>
 
-        <div class="rdt1"><strong>Potential Net Tax Return : <%= @favorite.net_taxe_return %></strong></div>
+        <div class="rdt1"><strong>Potential Net Tax Return : <%= @favorite.net_taxe_return.round(2) %></strong></div>
         </div>
       </div>
     </div>
