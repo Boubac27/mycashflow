@@ -17,6 +17,7 @@ class FavoritesController < ApplicationController
 
   def create
     scraped = params[:scraped]
+    ap params[:scraped]
     elements = scraped.split("&")
     hash_fav = {}
     elements.each do |el|
@@ -33,10 +34,11 @@ class FavoritesController < ApplicationController
     end
     @fav = Favorite.new(hash_fav)
     if @fav.save
-      redirect_to favorites_path
+
     else
       ap "bug"
     end
+    ap @fav
   end
 
   def update
@@ -61,11 +63,14 @@ class FavoritesController < ApplicationController
       :monthy_loan,
       :rental_charges,
       :total_rent,
-      :work
+      :work,
+      :city,
+      :urlscrap
     )
   end
 
   def index_params
-    params.require(:favorites).permit(:price)
+    params.require(:favorites).permit(:price, :city)
   end
 end
+

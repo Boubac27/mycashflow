@@ -1,6 +1,15 @@
-<h6><%= current_user.id %></h6>
+<div id="loader" class="loader">
+  <img src="https://360studio.org/spacery/G2Adata/graphics/alpo.start.screen-v1.0.51/loader__1_.gif" alt="">
+</div>
+
+<h6 style="display:none"><%= current_user.id %></h6>
+
+<div class="row">
+  <div class="col-xs-12 col-md-6 sticky">
     <div class="formulaire">
-      <input id="tok" name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      <div>
+        <input id="tok" name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      </div>
       <div class="form-inl">
         <input id="budget" class="controls" type="number" placeholder="Budget Max">
       </div>
@@ -8,30 +17,24 @@
         <input id="pac-input" class="controls" type="text" placeholder="Search Box">
       </div>
       <div class="form-inl">
-        <input type="submit" id="button">
+        <input type="submit" id="button"class="btn btn-warning">
       </div>
-
       <div class="form-inl">
         <textarea id="zipcode"></textarea>
       </div>
-
       <div class="form-inl">
         <textarea id="city"></textarea>
       </div>
     </div>
 
+    <div class="lastresearch">
+      <h3> latest research </h3>
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-6">
+    <div id="results"></div>
+  </div>
 
-  <br>
-  <br>
-  <br>
-  <br>
-  <div id="results"></div>
-</div>
-
-<div id="waiting">
-  <ul class="list-inline">
-    <li><i class="fas fa-square-full"></i></li>
-  </ul>
 </div>
 
 <script>
@@ -112,6 +115,9 @@
     document.getElementById('button').addEventListener('click', function(evt) {
       evt.preventDefault();
       console.log("bouton clique");
+      const loader = document.getElementById('loader');
+      loader.classList.remove('loader')
+
       const textarea_city = document.getElementById('city').value;
       const textarea_zipcode = document.getElementById('zipcode').value;
       const budget = document.getElementById('budget').value;
@@ -127,6 +133,7 @@
       mhash["budget"] = budget;
       mhash["authenticity_token"] = token;
       console.log(mhash);
+
       fetch(url, { method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(mhash)
@@ -134,6 +141,7 @@
         return response.text();
       }).then((data) => {
         //console.log(data);
+        loader.classList.add('loader')
         eval(data);
       });
     });
@@ -148,6 +156,7 @@ async defer></script>
 <div id="map2" style="height: 0px; width: 600px"></div>
 
 <script>
+
   function soumettre() {
     document.getElementById('bouton').submit();
   }
