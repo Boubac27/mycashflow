@@ -10,23 +10,12 @@ class FavoritesController < ApplicationController
     end
   end
 
-  # GET /favorites/:id
+  # GET /favorites/:id/
   def show
     @favorite = Favorite.find(params[:id])
   end
 
   def create
-
-  end
-
-  def update
-    p "dans update"
-    @favorite = Favorite.find(params[:id])
-    if @favorite.update(favorite_params)
-      redirect_to favorite_path(@favorite)
-    else
-      p "bug!!!"
-
     scraped = params[:scraped]
     elements = scraped.split("&")
     hash_fav = {}
@@ -48,6 +37,12 @@ class FavoritesController < ApplicationController
     else
       ap "bug"
     end
+  end
+
+  def update
+    @favorite = Favorite.find(params[:id])
+    @favorite.update(favorite_params)
+    redirect_to favorite_path(@favorite)
   end
 
   def destroy
@@ -73,6 +68,4 @@ class FavoritesController < ApplicationController
   def index_params
     params.require(:favorites).permit(:price)
   end
-
-
 end
