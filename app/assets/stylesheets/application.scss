@@ -13,3 +13,8 @@
 @import "layouts/index";
 @import "components/index";
 @import "pages/index";
+
+body {
+  margin-top: 70px;
+  min-height: 100vh;
+}
