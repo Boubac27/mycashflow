@@ -50,6 +50,10 @@ class Collecteur
       lng = appt_sold[:lng]
       a_rented_sorted = appts_rented.sort { |appt| (lat - appt[:lat]) * (lat - appt[:lat]) + (lng - appt[:lng]) * (lng - appt[:lng]) }
       a_rented_excluded = a_rented_sorted.reject { |appt| appt[:price] < 200 || appt[:surface].to_f < 10 }
+      a_rented_excluded.each do |apptm|
+        puts "rents in compute returns"
+        ap apptm[:price]
+      end
       a_rented_selected = a_rented_excluded.first(NUMBER_FLATS)
       lat2 = a_rented_selected[NUMBER_FLATS - 1][:lat]
       lng2 = a_rented_selected[NUMBER_FLATS - 1][:lng]
@@ -59,6 +63,8 @@ class Collecteur
         total += appt[:price].to_f / appt[:surface].to_f
       end
       avg_rents = total.to_f / NUMBER_FLATS.to_f
+      puts "rents"
+      p avg_rents
       appt_sold[:avg_rents] = avg_rents.to_f * appt_sold[:surface].to_f
       appt_sold[:returns] = appt_sold[:avg_rents].to_f / appt_sold[:price].to_f * 1200.to_f
       appt_sold[:precision] = precision

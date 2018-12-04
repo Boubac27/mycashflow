@@ -1,47 +1,26 @@
 <div class="appartement" style="background-color: white;">
   <a href='<%= result[:url] %>'>
     <% if result[:image].nil? %>
-      <div class="appt_image">
-      </div>
+      <div class="appt_image"></div>
     <% else %>
-      <div class="appt_image" style="background-image: url('<%= result[:image] %>');">
-      </div>
+      <div class="appt_image" style="background-image: url('<%= result[:image] %>');"></div>
     <% end %>
   </a>
-  <div class="legendes">
-    <div>
-      Price
-    </div>
-    <div>
-      <h4>Potential yield</h4>
-    </div>
-    <div>
-      Rooms
-    </div>
-    <div>
-      Surface
-    </div>
-  </div>
   <div class="parametres">
-    <div>
-      <%= result[:price] %> €
-    </div>
+    <p> Price: <%= result[:price] %> € </p>
     <div>
       <% if user_signed_in? %>
-        <h4><%= result[:returns].round(2) %> %</h4>
+        <h4>Potential yield : <%= result[:returns].round(2) %> %</h4>
       <% end %>
     </div>
-    <div>
-      <%= result[:rooms] %> rooms
-    </div>
-    <div>
-      <%= result[:surface] %> m²
-    </div>
+    <p> Rooms: <%= result[:rooms] %></p>
+    <p> Surface : <%= result[:surface] %> m² </p>
+
     <% scraped = "urlscrap=#{result[:url]}&urlimage=#{result[:image]}&price=#{result[:price]}&rendement=#{result[:returns]}&rooms=#{result[:rooms]}&surface=#{result[:surface]}&user_id=#{current_user.id}&lat=#{result[:lat]}&long=#{result[:lng]}&city=#{result[:city]}&zipcode=#{result[:zipcode]}" %>
     <form action='/favorites' method='POST'>
       <%= hidden_field_tag :scraped, scraped %>
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-      <button type='submit'><i class='far fa-heart'></i></button>
+      <button type='submit'class="btn btn-warning">Select</button>
     </form>
   </div>
 </div>
