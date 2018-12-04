@@ -1,5 +1,5 @@
 
-<h6><%= current_user.id %></h6>
+<h6 style="display:none"><%= current_user.id %></h6>
     <div class="formulaire">
       <input id="tok" name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
       <div class="form-inl">
@@ -9,7 +9,7 @@
         <input id="pac-input" class="controls" type="text" placeholder="Search Box">
       </div>
       <div class="form-inl">
-        <input type="submit" id="button">
+        <input type="submit" id="button"class="btn btn-warning">
       </div>
 
       <div class="form-inl">
