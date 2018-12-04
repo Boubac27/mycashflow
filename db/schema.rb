@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 2018_12_04_105012) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
+  create_table "last_results", force: :cascade do |t|
+    t.integer "budget"
+    t.string "ville"
+    t.integer "zipcode"
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "results", force: :cascade do |t|
     t.text "url"
     t.integer "deductions"
