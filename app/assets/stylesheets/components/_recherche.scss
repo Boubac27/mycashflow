@@ -5,8 +5,8 @@
 
 
 .formulaire {
-  position: absolute;
-  top: 40px;
+  // position: absolute;
+  // top: 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -51,26 +51,30 @@ textarea {
   flex: 0 0 auto;
   background-size: cover;
   background-repeat: no-repeat;
-  width: 200px;
-  height: 150px;
+  width: 250px;
+  height: 200px;
   border-radius: 3px;
   border: 1px solid gray;
 }
 
-.legendes {
-  flex: 0 0 auto;
-  padding-bottom:25px;
-}
-
 .parametres {
   flex: 0 0 auto;
+  text-align:left;
+  padding-bottom:25px;
 }
-
 .appartement {
-  margin: 25px 0;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  color:$gray;
+  height: 250px;
+    width: 700px;
+    background-color: white;
+    display: box;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.07), 0 1px 0 0 rgba(0, 0, 0, 0.03);
+    position: relative;
+    margin: 15px 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .fa-heart:before {
@@ -79,4 +83,8 @@ textarea {
 
 .fa-heart:hover{
   font-size:20px;
+}
+.select_info {
+  color:$green;
+
 }

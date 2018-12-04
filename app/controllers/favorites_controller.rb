@@ -17,6 +17,7 @@ class FavoritesController < ApplicationController
 
   def create
     scraped = params[:scraped]
+    ap params[:scraped]
     elements = scraped.split("&")
     hash_fav = {}
     elements.each do |el|
@@ -37,6 +38,7 @@ class FavoritesController < ApplicationController
     else
       ap "bug"
     end
+    ap @fav
   end
 
   def update
