@@ -4,10 +4,8 @@ class SearchesController < ApplicationController
     if params[:search].present?
       @results_base = Collecteur.new(search_params, current_user).collecter[:prices]
       @results = @results_base.sort_by { |appt| appt[:returns] }.reverse
-      ap @results
     else
       @results = []
-      ap @results
     end
   end
 
@@ -17,14 +15,12 @@ class SearchesController < ApplicationController
   end
 
   def create
-    @results_base = Collecteur.new(search_params, current_user).collecter[:prices]
-    @results = @results_base.sort_by { |appt| appt[:returns] }.reverse
-    puts "Create"
-    ap @results
-    @prices = @results
-    UserMailer.welcome(current_user, @results).deliver_now
-    @progress = Progress.where("user_id=?", current_user.id)
-    @progress.destroy_all
+    scrap_lbc
+    search = Search.new(search_params)
+    search.last_scrap = Date.current
+    search.user = current_user
+    search.save
+    # UserMailer.welcome(current_user, @results).deliver_now
     render 'create.js'
   end
 
@@ -32,6 +28,12 @@ class SearchesController < ApplicationController
   end
 
   private
+
+  def scrap_lbc
+    @results_base = Collecteur.new(search_params, current_user).collecter[:prices]
+    @results = @results_base.sort_by { |appt| appt[:returns] }.reverse
+    @prices = @results
+  end
 
   def search_params
     params.require(:search).permit(:city, :zipcode, :budget)

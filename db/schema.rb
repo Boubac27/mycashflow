@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2018_12_03_135334) do
-
-ActiveRecord::Schema.define(version: 2018_12_03_155209) do
-
+ActiveRecord::Schema.define(version: 2018_12_04_105012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,12 +50,6 @@ ActiveRecord::Schema.define(version: 2018_12_03_155209) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
-  create_table "progresses", force: :cascade do |t|
-    t.integer "scale"
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_progresses_on_user_id"
-  end
-
   create_table "results", force: :cascade do |t|
     t.text "url"
     t.integer "deductions"
@@ -79,6 +69,7 @@ ActiveRecord::Schema.define(version: 2018_12_03_155209) do
     t.datetime "updated_at", null: false
     t.string "city"
     t.string "zipcode"
+    t.datetime "last_scrap"
     t.index ["user_id"], name: "index_searches_on_user_id"
   end
 
@@ -95,7 +86,6 @@ ActiveRecord::Schema.define(version: 2018_12_03_155209) do
   end
 
   add_foreign_key "favorites", "users"
-  add_foreign_key "progresses", "users"
   add_foreign_key "results", "searches"
   add_foreign_key "searches", "users"
 end
