@@ -19,8 +19,6 @@ class SearchesController < ApplicationController
     @results = @results_base.sort_by { |appt| appt[:returns] }.reverse
     @prices = @results
     # UserMailer.welcome(current_user, @results).deliver_now
-    @progress = Progress.where("user_id=?", current_user.id)
-    @progress.destroy_all
     render 'create.js'
   end
 

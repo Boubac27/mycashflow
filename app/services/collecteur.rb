@@ -20,14 +20,9 @@ class Collecteur
     @zipcode = params[:zipcode]
     @budget = params[:budget]
     @user = user
-    @progress = Progress.new(scale: 1)
-    @progress.user = @user
-    @progress.save
   end
 
   def collecter
-    # @progress = Progress.where("user_id=?", @user.id).first
-    # Progress.update(@progress.id, scale: 1)
     @prices_no_selection = search_category(9, @city, @zipcode)
     @prices_no_selection.each { |appt| ap appt[:rooms] }
     @prices = @prices_no_selection.reject { |appt| appt[:price] > @budget.to_i || appt[:rooms].nil? }
@@ -40,12 +35,7 @@ class Collecteur
   end
 
   def compute_return(appts_sold, appts_rented)
-    # @progress = Progress.where("user_id=?", @user.id).first
-    # scale = @progress.scale + 1
-    # Progress.update(@progress.id, scale: scale)
     appts_sold.each_with_index do |appt_sold, index|
-      # scale = Progress.where("user_id=?", @user.id).first.scale + 1
-      # Progress.update(@progress.id, scale: scale)
       lat = appt_sold[:lat]
       lng = appt_sold[:lng]
       a_rented_sorted = appts_rented.sort { |appt| (lat - appt[:lat]) * (lat - appt[:lat]) + (lng - appt[:lng]) * (lng - appt[:lng]) }
@@ -66,8 +56,6 @@ class Collecteur
   end
 
   def search_category(categ_number, city, zipcode)
-    # @progress = Progress.where("user_id=?", @user.id).first
-
     puts "parameters"
     ap city
     ap zipcode
@@ -94,8 +82,6 @@ class Collecteur
     obj = scr[20..scr.length - 1]
     obj_json = JSON.parse(obj)
     obj_json["adSearch"]["data"]["ads"].each_with_index do |ad, index|
-      # scale = @progress.scale + 1
-      # Progress.update(@progress.id, scale: scale)
       appt = {}
       if !ad["price"].nil?
         ap index
