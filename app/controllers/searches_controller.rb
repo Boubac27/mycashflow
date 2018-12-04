@@ -30,7 +30,7 @@ class SearchesController < ApplicationController
   private
 
   def scrap_lbc
-    @results_base = Collecteur.new(search_params, current_user).collecter[:prices]
+    @results_base = Collecteur.new(search_params).collecter[:prices]
     @results = @results_base.sort_by { |appt| appt[:returns] }.reverse
     @prices = @results
   end

@@ -15,11 +15,10 @@ MHASH = { "Accept" => "text/html,application/xhtml+xml,application/xml;q=0.9,ima
 NUMBER_FLATS = 10
 
 class Collecteur
-  def initialize(params, user)
+  def initialize(params)
     @city = params[:city]
     @zipcode = params[:zipcode]
     @budget = params[:budget]
-    @user = user
   end
 
   def collecter
@@ -56,10 +55,6 @@ class Collecteur
   end
 
   def search_category(categ_number, city, zipcode)
-    puts "parameters"
-    ap city
-    ap zipcode
-    ap @budget
     if zipcode != ""
       url = "https://www.leboncoin.fr/recherche/?category=#{categ_number}&regions=22&location=#{city}_#{zipcode}"
     else
@@ -81,10 +76,10 @@ class Collecteur
     scr = script[0][:content]
     obj = scr[20..scr.length - 1]
     obj_json = JSON.parse(obj)
+
     obj_json["adSearch"]["data"]["ads"].each_with_index do |ad, index|
       appt = {}
       if !ad["price"].nil?
-        ap index
         index += 1
         appt[:price] = ad["price"][0].to_i
         appt[:url] = ad["url"]
@@ -97,6 +92,7 @@ class Collecteur
         appt[:lng] = ad["location"]["lng"]
         appt[:city] = city
         appt[:zipcode] = zipcode
+        appt[:publication_date] = ad["first_publication_date"]
         @search_data << appt
       end
     end
