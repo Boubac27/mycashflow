@@ -1,7 +1,12 @@
 
 <h6 style="display:none"><%= current_user.id %></h6>
+
+<div class="row">
+  <div class="col-xs-12 col-md-6 sticky">
     <div class="formulaire">
-      <input id="tok" name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      <div>
+        <input id="tok" name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      </div>
       <div class="form-inl">
         <input id="budget" class="controls" type="number" placeholder="Budget Max">
       </div>
@@ -11,22 +16,20 @@
       <div class="form-inl">
         <input type="submit" id="button"class="btn btn-warning">
       </div>
-
       <div class="form-inl">
         <textarea id="zipcode"></textarea>
       </div>
-
       <div class="form-inl">
         <textarea id="city"></textarea>
       </div>
     </div>
-
-
-  <br>
-  <br>
-  <br>
-  <br>
-  <div id="results"></div>
+    <div class="lastresearch">
+      <h3> latest research </h3>
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-6">
+    <div id="results"></div>
+  </div>
 </div>
 
 <script>

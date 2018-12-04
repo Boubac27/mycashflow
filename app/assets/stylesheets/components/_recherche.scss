@@ -5,8 +5,8 @@
 
 
 .formulaire {
-  position: absolute;
-  top: 40px;
+  // position: absolute;
+  // top: 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -65,7 +65,7 @@ textarea {
 .appartement {
   color:$gray;
   height: 250px;
-    width: 900px;
+    width: 700px;
     background-color: white;
     display: box;
     border-radius: 5px;
