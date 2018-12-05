@@ -14,6 +14,11 @@ class SearchesController < ApplicationController
     @user = current_user
   end
 
+  def destroy
+    @search = Search.find(params[:id])
+    @search.destroy
+  end
+
   def create
     scrap_lbc
     search = Search.new(search_params)
