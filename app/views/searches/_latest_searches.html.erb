@@ -2,7 +2,7 @@
 <% searches.each do |search| %>
   <div class="searchcard">
     <div class="searchcity">
-      <p>City <%= search.city%></p>
+      <p>City :<%= search.city%></p>
     </div>
     <div class="searchzip">
       <p>Zip code: <%= search.zipcode%></p>
@@ -15,6 +15,6 @@
     <div class="searchdate">
      <p> Date : <%= search.last_scrap%></p>
     </div>
-   <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, search_path(search), remote: true, method: :delete %>
+   <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, search_path(search), remote: true, method: :delete,data: {:confirm => 'Are you sure?'}%>
   </div>
 <% end %>
