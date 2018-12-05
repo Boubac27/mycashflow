@@ -19,13 +19,14 @@
 }
 
 .loader {
+  display: none;
   text-align: center;
   margin-top: 20vh;
-  display: none;
+
 
   img {
-    width: 100px;
     width: 200px;
+    margin-top: 20vh;
   }
 }
 
