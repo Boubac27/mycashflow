@@ -17,8 +17,11 @@
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
-    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAZuR-94uFzg2VuikctpXZHBOcFcuX0Wzo" %>
     <%= javascript_pack_tag 'application' %>
-    <%= javascript_pack_tag "map" %>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=
+    AIzaSyAZuR-94uFzg2VuikctpXZHBOcFcuX0Wzo
+    &libraries=places&callback=initGoogleJs"
+    async defer></script>
   </body>
 </html>
