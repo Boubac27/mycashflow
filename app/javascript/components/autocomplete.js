@@ -15,11 +15,11 @@ const initAutocomplete = () => {
         places[0]["address_components"].forEach((component) => {
           console.log(component["types"][0]);
           if (component["types"][0] === 'locality') {
-            textarea_city = document.getElementById('city');
+            const textarea_city = document.getElementById('city');
             textarea_city.innerText = component["long_name"];
           }
           if (component["types"][0] === 'postal_code') {
-            textarea_zipcode = document.getElementById('zipcode');
+            const textarea_zipcode = document.getElementById('zipcode');
             textarea_zipcode.innerText = component["long_name"];
           }
         });
