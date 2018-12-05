@@ -1,22 +1,34 @@
 <h1>Hello</h1>
 
-<p>
-   voici vos annonces
-</p>
+<h2>
+   Here are your new ads
+</h2>
+
 
 <ul>
-  <% @annonces.each do |annonce| %>
-    <li>
-      <%= annonce[:price]     %>
-      <%= annonce[:url]       %>
-      <%= annonce[:image]     %>
-      <%= annonce[:rooms]     %>
-      <%= annonce[:surface]   %>
-      <%= annonce[:lat]       %>
-      <%= annonce[:lng]       %>
-      <%= annonce[:avg_rents] %>
-      <%= annonce[:returns]   %>
-      <%= annonce[:precision] %>
-    </li>
-  <% end %>
+  <div id="mail">
+    <% @annonces.each do |annonce| %>
+      <div class="annonce">
+        <a href="<%= annonce[:url] %>"><img src="<%= annonce[:image] %>"></a>
+          <div class="description">
+            <h3>potential yield: <%= annonce[:returns].round(2) %>%</h3>
+            <p>price: <%= annonce[:price] %> €</p>
+            <p>rooms: <%= annonce[:rooms] %></p>
+            <p>surface: <%= annonce[:surface] %></p>
+          </div>
+        <li>
+          <%= annonce[:price]     %>
+          <%= annonce[:url]       %>
+          <%= annonce[:image]     %>
+          <%= annonce[:rooms]     %>
+          <%= annonce[:surface]   %>
+          <%= annonce[:lat]       %>
+          <%= annonce[:lng]       %>
+          <%= annonce[:avg_rents] %>
+          <%= annonce[:returns]   %>
+          <%= annonce[:precision] %>
+        </li>
+      </div>
+    <% end %>
+  </div>
 </ul>
