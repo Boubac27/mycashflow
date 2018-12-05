@@ -39,15 +39,24 @@ ActiveRecord::Schema.define(version: 2018_12_04_105012) do
     t.datetime "updated_at", null: false
     t.float "lat"
     t.float "long"
+    t.string "city"
+    t.string "zipcode"
     t.float "property_taxe"
     t.float "work"
     t.float "insurance"
     t.float "total_rent"
     t.float "monthy_loan"
     t.float "rental_charges"
-    t.string "city"
-    t.string "zipcode"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "last_results", force: :cascade do |t|
+    t.integer "budget"
+    t.string "ville"
+    t.integer "zipcode"
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "results", force: :cascade do |t|
