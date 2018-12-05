@@ -9,14 +9,11 @@
     text-align: center;
     position: relative;
     margin-bottom: 10px;
-
 }
-
 .favrend {
   position: absolute;
   top:20px;
   left: 320px;
-
 }
 .favprice {
 position: absolute;
@@ -46,26 +43,21 @@ width:300px;
   right:25px;
   color:$orange;
 }
-
 .favtrash:hover{
   font-size:20px;
 }
-
 .faveyes{
   position: absolute;
   bottom:25px;
   right:70px;
   color:$orange;
 }
-
 .faveyes:hover{
   font-size:20px;
 }
-
 .favselection {
   justify-content: space-around;
   align-items:center;
-
 }
 .favcity {
   position: absolute;

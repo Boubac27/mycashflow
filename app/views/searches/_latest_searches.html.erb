@@ -1,0 +1,20 @@
+<h3> latest research </h3>
+<% searches.each do |search| %>
+  <div class="searchcard">
+    <div class="searchcity">
+      <p>City <%= search.city%></p>
+    </div>
+    <div class="searchzip">
+      <p>Zip code: <%= search.zipcode%></p>
+    </div>
+
+    <div class="searchbudget">
+      <p>Budget:<%= search.budget%> €</p>
+    </div>
+
+    <div class="searchdate">
+     <p> Date : <%= search.last_scrap%></p>
+    </div>
+   <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, search_path(search), remote: true, method: :delete %>
+  </div>
+<% end %>
