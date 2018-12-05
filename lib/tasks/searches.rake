@@ -21,7 +21,9 @@ namespace :searches do
       # Send this results to user
 
       # Send email with results
-      UserMailer.welcome(search.user, new_results).deliver_now
+      if new_results.present?
+        UserMailer.welcome(search.user, new_results).deliver_now
+      end
     end
   end
 end

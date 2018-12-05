@@ -3,11 +3,60 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style>
-      /* Email styles need to be inline */
+      body{
+        background-color:#E5E5E5;
+        text-align:center;
+      }
+      h1,h2{
+        color:#ff7b00;
+      }
+      li{
+        display:none;
+      }
+      img{
+        padding: 10px;
+        margin: 10px;
+        flex: 0 0 auto;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 250px;
+        height: 200px;
+        border-radius: 3px;
+        box-shadow:1px 1px 1px black;
+      }
+      #mail{
+        text-align:-webkit-center;
+      }
+      .annonce{
+        margin: 15px 15px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: relative;
+        height: 250px;
+        width: 700px;
+        border-radius: 5px;
+        background-color:white;
+        box-shadow:1px 1px 1px black;
+      }
+      .annonce:hover{
+        height: 252px;
+        width: 702px;
+        box-shadow:2px 2px 2px black;
+      }
+      .description{
+        flex: 0 0 auto;
+        text-align: left;
+        padding-bottom: 25px;
+      }
     </style>
   </head>
 
   <body>
+    <img src="http://localhost:3000/logo.png" alt="logo MyCashFlow">
     <%= yield %>
+    <footer>
+      <img src="../../assets/images/logo.png" alt="logo MyCashFlow">
+    </footer>
   </body>
 </html>
