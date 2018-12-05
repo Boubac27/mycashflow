@@ -26,13 +26,13 @@
     </div>
 
     <div class="lastresearch">
-      <h3> latest research </h3>
+   <!--    <h3> latest research </h3> -->
     </div>
-    <div id="loader" class="loader">
-  <img src="http://dev.s212147.gridserver.com/images/seckel-ajax-loader.gif" alt="">
-</div>
   </div>
   <div class="col-xs-12 col-md-6">
+    <div id="loader" class="loader">
+      <img src="http://dev.s212147.gridserver.com/images/seckel-ajax-loader.gif" class="bar" alt="">
+    </div>
     <div id="results"></div>
   </div>
 
@@ -117,7 +117,7 @@
       evt.preventDefault();
       console.log("bouton clique");
       const loader = document.getElementById('loader');
-      loader.classList.remove('loader')
+      loader.classList.add('visible');
 
       const textarea_city = document.getElementById('city').value;
       const textarea_zipcode = document.getElementById('zipcode').value;
@@ -142,7 +142,7 @@
         return response.text();
       }).then((data) => {
         //console.log(data);
-        loader.classList.add('loader')
+        loader.classList.remove('visible');
         eval(data);
       });
     });
