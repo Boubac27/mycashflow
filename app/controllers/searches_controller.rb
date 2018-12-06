@@ -22,7 +22,7 @@ class SearchesController < ApplicationController
   def create
     scrap_lbc
     search = Search.new(search_params)
-    search.last_scrap = Date.current
+    search.last_scrap = DateTime.current
     search.user = current_user
     search.save
     render 'create.js'
