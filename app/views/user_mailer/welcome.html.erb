@@ -6,9 +6,7 @@
 </div>
 <h2>Hello</h2>
 
-<h3>
-   Here are your new ads
-</h3>
+<h3>Voici vos nouvelles annonces</h3>
 
 
 <ul>
@@ -17,9 +15,14 @@
       <div class="annonce">
         <a href="<%= annonce[:url] %>"><img src="<%= annonce[:image] %>"></a>
           <div class="description">
-            <h4>potential yield: <%= annonce[:returns].round(2) %>%</h4>
-            <p>price: <%= annonce[:price] %> €</p>
-            <p>rooms: <%= annonce[:rooms] %></p>
+            <div class="metrics">
+              <div class="metric">
+                <h2>rendement potentiel: <div class="green">  <%= annonce[:returns].round(2) %>%</div></h2>
+              </div>
+            </div>
+            <hr>
+            <h4>prix: <%= annonce[:price] %> €</h4>
+            <p>pieces: <%= annonce[:rooms] %></p>
             <p>surface: <%= annonce[:surface] %> m²</p>
           </div>
         <li>
