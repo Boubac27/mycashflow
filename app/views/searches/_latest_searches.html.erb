@@ -15,6 +15,6 @@
     <div class="searchdate">
      <p> Date : <%= search.last_scrap%></p>
     </div>
-   <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, search_path(search), remote: true, method: :delete,data: {:confirm => 'Are you sure?'}%>
+   <%= link_to '<i class="fas fa-trash-alt searchdelete"></i>'.html_safe, search_path(search), remote: true, method: :delete,data: {:confirm => 'Are you sure?'}%>
   </div>
 <% end %>
