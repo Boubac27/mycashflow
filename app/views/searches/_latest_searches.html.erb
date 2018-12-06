@@ -1,20 +1,28 @@
-<h3> latest research </h3>
+<h5 class="searches-title">Mes recherches</h5>
 <% searches.each do |search| %>
   <div class="searchcard">
     <div class="searchcity">
-      <p>City :<%= search.city%></p>
-    </div>
-    <div class="searchzip">
-      <p>Zip code: <%= search.zipcode%></p>
+      <h5>
+        <%= search.city %>
+        <% if search.zipcode.present? %>
+          (<%= search.zipcode %>)
+        <% end %>
+      </h5>
     </div>
 
     <div class="searchbudget">
-      <p>Budget:<%= search.budget%> €</p>
+      <p><%= number_to_currency(search.budget / 1000, unit: "k€", precision: 0, delimiter: " ", format: "%n %u") %></p>
     </div>
 
-    <div class="searchdate">
-     <p> Date : <%= search.last_scrap%></p>
+    <div class="searchcard-flex">
+      <div class="searchdate">
+        <p>
+          Dernière recherche il y a <%= time_ago_in_words(search.last_scrap).capitalize %>
+
+        </p>
+      </div>
+
+     <%= link_to '<i class="far fa-times-circle searchdelete"></i>'.html_safe, search_path(search), remote: true, method: :delete,data: {:confirm => 'Are you sure?'} %>
     </div>
-   <%= link_to '<i class="fas fa-trash-alt searchdelete"></i>'.html_safe, search_path(search), remote: true, method: :delete,data: {:confirm => 'Are you sure?'}%>
   </div>
 <% end %>

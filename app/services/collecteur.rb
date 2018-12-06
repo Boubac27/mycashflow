@@ -99,6 +99,7 @@ class Collecteur
         appt[:city] = city
         appt[:zipcode] = zipcode
         appt[:publication_date] = ad["first_publication_date"]
+        appt[:subject] = ad["subject"]
         @search_data << appt
       end
     end

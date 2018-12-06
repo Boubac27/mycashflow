@@ -62,19 +62,75 @@ textarea {
   text-align:left;
   padding-bottom:25px;
 }
-.appartement {
-  color:$gray;
-  height: 250px;
-    width: 700px;
-    background-color: white;
-    display: box;
-    border-radius: 5px;
-    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.07), 0 1px 0 0 rgba(0, 0, 0, 0.03);
+
+.appartment {
+  display: flex;
+  padding: 15px;
+  margin: 15px;
+  background-color: white;
+  color: #444;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+
+  hr {
+    margin: 7px 0;
+  }
+
+  .appartment-image img {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 3px;
+  }
+
+  .appartment-infos {
+    flex: 1 1 auto;
     position: relative;
-    margin: 15px 15px;
+    margin-left: 15px;
+
+    h2 {
+      margin-top: 0;
+    }
+
+    form {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .metrics {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+
+    .metric {
+      margin-right: 60px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+
+      h2 {
+        font-size: 31px;
+        margin-top: 7px;
+      }
+    }
+
+    .main {
+      h2 {
+        font-size: 38px;
+        margin-top: 0px;
+      }
+    }
+
+    label {
+      color: #666;
+    }
+  }
+
+  .green {
+    color: $green;
+  }
 }
 
 .fa-heart:before {

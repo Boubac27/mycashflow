@@ -1,45 +1,14 @@
-
-
-<h6 style="display:none"><%= current_user.id %></h6>
-
-<div id="loader" class="loader">
-  <img src="https://360studio.org/spacery/G2Adata/graphics/alpo.start.screen-v1.0.51/loader__1_.gif" alt="">
-</div>
-
-<div class="row">
-  <div class="col-xs-12 col-md-6 sticky">
-    <div class="formulaire">
-      <div>
-        <input id="tok" name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-      </div>
-      <div class="form-inl">
-        <input id="budget" class="controls" type="number" placeholder="Budget Max">
-      </div>
-      <div class="form-inl">
-        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-      </div>
-      <div class="form-inl">
-        <input type="submit" id="button"class="btn btn-warning">
-      </div>
-      <div class="form-inl">
-        <textarea id="zipcode"></textarea>
-      </div>
-      <div class="form-inl">
-        <textarea id="city"></textarea>
-      </div>
-    </div>
-
-    <div class="lastresearch">
-
-      <%= render 'latest_searches', searches: current_user.searches %>
-
-    </div>
+<div class="main-container">
+  <div class="last-searches">
+    <%= render 'latest_searches', searches: current_user.searches %>
   </div>
-  <div class="col-xs-12 col-md-6">
+
+  <div class="current-search">
+    <%= render 'search_form' %>
+
+    <div id="results"></div>
     <div id="loader" class="loader">
       <img src="http://dev.s212147.gridserver.com/images/seckel-ajax-loader.gif" class="bar" alt="">
     </div>
-    <div id="results"></div>
   </div>
-
 </div>
