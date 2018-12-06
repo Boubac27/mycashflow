@@ -1,15 +1,7 @@
-<form class="form-inline">
-  <input id="tok" name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-  <div class="form-group">
-    <label for="budget">Budget max</label>
-    <input id="budget" type="number" class="form-control" placeholder="300 000 €">
-  </div>
-  <div class="form-group" id="zone">
-    <label for="pac-input">Zone</label>
-    <input type="text" class="form-control" id="pac-input" placeholder="Ville ou code postal">
-  </div>
-  <input type="hidden" id="zipcode">
-  <input type="hidden" id="city">
+<%= simple_form_for(@search, html: { class: 'form-inline' }) do |f| %>
+  <%= f.input "budget", input_html: { id: 'budget', placeholder: "300 000 € " }, label: 'Budget max' %>
+  <%= f.input "city", input_html: { id: 'pac-input', placeholder: "Ville ou code postal" }, wrapper_html: { id: "zone" }, label: "Zone" %>
+  <%= f.input "zipcode", input_html: { id: 'zipcode' }, as: :hidden %>
 
-  <button id="button" type="submit" class="btn btn-warning">Search</button>
-</form>
+  <%= f.submit "Search", id: "button", class: "btn btn-warning" %>
+<% end %>
