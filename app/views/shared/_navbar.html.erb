@@ -13,16 +13,16 @@
       <!-- Links when logged in -->
       <i class=""></i>
       <%= link_to "", new_search_path, class: "fas fa-search navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "My Selection", favorites_path , class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Ma selection", favorites_path , class: "navbar-wagon-item navbar-wagon-link" %>
       <div class="navbar-wagon-item navbar-wagon-link logbuton">
               <%= link_to destroy_user_session_path, method: :delete do %>
-               <%= t(".sign_out", default: "Log out") %>
+               <%= t(".sign_out", default: "Déconnexion") %>
       <% end %>
       </div>
     </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".sign_in", default: "Connexion"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>
 
