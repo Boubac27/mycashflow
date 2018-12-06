@@ -1,4 +1,6 @@
 class FavoritesController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: :create
+
   def index
     @favorites = Favorite.where(user: current_user)
     @favorites = Favorite.all
@@ -33,12 +35,13 @@ class FavoritesController < ApplicationController
       hash_fav[key.to_sym] = value
     end
     @fav = Favorite.new(hash_fav)
-    if @fav.save
 
-    else
-      ap "bug"
+    respond_to do |format|
+      if @fav.save
+        format.html { redirect_to favorites_path }
+        format.js { }
+      end
     end
-    ap @fav
   end
 
   def update

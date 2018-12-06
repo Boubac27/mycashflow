@@ -4,41 +4,40 @@
   </div>
     <h1>MyCashFlow</h1>
 </div>
-<h2>Hello</h2>
+<h2>Bonjour</h2>
 
-<h3>Voici vos nouvelles annonces</h3>
-
+<h3>Nous avons trouvé <%= @annonces.count %> annonce(s) qui pourraient vous intéresser</h3>
 
 <ul>
   <div id="mail">
     <% @annonces.each do |annonce| %>
       <div class="annonce">
-        <a href="<%= annonce[:url] %>"><img src="<%= annonce[:image] %>"></a>
-          <div class="description">
-            <div class="metrics">
-              <div class="metric">
-                <h2>rendement potentiel: <div class="green">  <%= annonce[:returns].round(2) %>%</div></h2>
-              </div>
+        <a href="<%= annonce[:url] %>">
+          <img src="<%= annonce[:image] %>">
+        </a>
+        <div class="description">
+          <div class="metrics">
+            <div class="metric main">
+              <h2 class="green"><%= annonce[:returns].round(2) %> %</h2>
+              <label>Rendement brut</label>
             </div>
-            <hr>
-            <h4>prix: <%= annonce[:price] %> €</h4>
-            <p>pieces: <%= annonce[:rooms] %></p>
-            <p>surface: <%= annonce[:surface] %> m²</p>
+            <div class="metric">
+              <h2><%= number_to_currency(annonce[:avg_rents].round, format: "%n %u", unit: "€", delimiter: " ", precision: 0) %> / mois</h2>
+              <label>Loyer potentiel</label>
+            </div>
           </div>
-        <li>
-          <%= annonce[:price]     %>
-          <%= annonce[:url]       %>
-          <%= annonce[:image]     %>
-          <%= annonce[:rooms]     %>
-          <%= annonce[:surface]   %>
-          <%= annonce[:lat]       %>
-          <%= annonce[:lng]       %>
-          <%= annonce[:avg_rents] %>
-          <%= annonce[:returns]   %>
-          <%= annonce[:precision] %>
-        </li>
+          <hr>
+          <h4><%= number_to_currency(annonce[:price], format: "%n %u", unit: "€", delimiter: " ", precision: 0) %></h4>
+          <p><%= pluralize(annonce[:rooms], "chambre") %>, <%= annonce[:surface] %>m², à <%= annonce[:city] %></p>
+        </div>
+        <% scraped = "urlscrap=#{annonce[:url]}&urlimage=#{annonce[:image]}&price=#{annonce[:price]}&rendement=#{annonce[:returns]}&rooms=#{annonce[:rooms]}&surface=#{annonce[:surface]}&user_id=#{@user.id}&lat=#{annonce[:lat]}&long=#{annonce[:lng]}&city=#{annonce[:city]}&zipcode=#{annonce[:zipcode]}" %>
+        <div class="select_info">
+          <form method="post" action="http://localhost:3000/favorites">
+            <input type="hidden" value="<%= scraped %>" name="scraped">
+            <button class="btn btn-warning">Selectionner</button>
+          </form>
+        </div>
       </div>
-
     <% end %>
   </div>
 </ul>
