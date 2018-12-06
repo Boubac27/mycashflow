@@ -2,6 +2,5 @@
   <%= f.input "budget", input_html: { id: 'budget', placeholder: "300 000 € " }, label: 'Budget max' %>
   <%= f.input "city", input_html: { id: 'pac-input', placeholder: "Ville ou code postal" }, wrapper_html: { id: "zone" }, label: "Zone" %>
   <%= f.input "zipcode", input_html: { id: 'zipcode' }, as: :hidden %>
-
-  <%= f.submit "Search", id: "button", class: "btn btn-warning" %>
+  <%= f.submit "Rechercher", id: "button", class: "btn btn-warning" %>
 <% end %>
