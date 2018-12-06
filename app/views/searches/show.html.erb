@@ -1,0 +1,18 @@
+<div class="main-container">
+  <div class="last-searches">
+    <%= render 'latest_searches', searches: current_user.searches %>
+  </div>
+
+  <div class="current-search">
+    <%= render 'search_form' %>
+
+    <div id="results">
+      <% @results.each do |result| %>
+        <%= render 'result', result: result %>
+      <% end %>
+    </div>
+    <div id="loader" class="loader">
+      <img src="http://dev.s212147.gridserver.com/images/seckel-ajax-loader.gif" alt="">
+    </div>
+  </div>
+</div>

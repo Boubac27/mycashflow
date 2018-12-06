@@ -1,8 +1,14 @@
-<h1>Hello</h1>
+<div id="header">
+  <div class="logo">
+     <a href="http://www.mycashflow.me"><img src="<%= ENV['DOMAIN'] %>/logo.png" alt="logo MyCashFlow"></a>
+  </div>
+    <h1>MyCashFlow</h1>
+</div>
+<h2>Hello</h2>
 
-<h2>
+<h3>
    Here are your new ads
-</h2>
+</h3>
 
 
 <ul>
@@ -11,10 +17,10 @@
       <div class="annonce">
         <a href="<%= annonce[:url] %>"><img src="<%= annonce[:image] %>"></a>
           <div class="description">
-            <h3>potential yield: <%= annonce[:returns].round(2) %>%</h3>
+            <h4>potential yield: <%= annonce[:returns].round(2) %>%</h4>
             <p>price: <%= annonce[:price] %> €</p>
             <p>rooms: <%= annonce[:rooms] %></p>
-            <p>surface: <%= annonce[:surface] %></p>
+            <p>surface: <%= annonce[:surface] %> m²</p>
           </div>
         <li>
           <%= annonce[:price]     %>
@@ -29,6 +35,9 @@
           <%= annonce[:precision] %>
         </li>
       </div>
+
     <% end %>
   </div>
 </ul>
+
+

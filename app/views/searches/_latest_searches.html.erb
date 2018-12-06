@@ -1,6 +1,8 @@
 <h5 class="searches-title">Mes recherches</h5>
+
 <% searches.each do |search| %>
   <div class="searchcard">
+    <%= link_to '', search_path(search), class: 'search-link' %>
     <div class="searchcity">
       <h5>
         <%= search.city %>
@@ -17,12 +19,13 @@
     <div class="searchcard-flex">
       <div class="searchdate">
         <p>
-          Dernière recherche il y a <%= time_ago_in_words(search.last_scrap).capitalize %>
+          Dernière recherche il y a <%= time_ago_in_words(search.last_scrap) %>
 
         </p>
       </div>
 
-     <%= link_to '<i class="far fa-times-circle searchdelete"></i>'.html_safe, search_path(search), remote: true, method: :delete,data: {:confirm => 'Êtes-vous sûr ?'} %>
+
+     <%= link_to '<i class="far fa-times-circle searchdelete"></i>'.html_safe, search_path(search), remote: true, method: :delete,data: {:confirm => 'Confirmez la suppression ?'} %>
     </div>
   </div>
 <% end %>
