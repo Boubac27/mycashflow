@@ -61,10 +61,11 @@ class Collecteur
   end
 
   def search_category(categ_number, city, zipcode)
+    city = I18n.transliterate(city)
     if zipcode != ""
-      url = "https://www.leboncoin.fr/recherche/?category=#{categ_number}&regions=22&location=#{city}_#{zipcode}"
+      url = URI.encode("https://www.leboncoin.fr/recherche/?category=#{categ_number}&regions=22&location=#{city}_#{zipcode}")
     else
-      url = "https://www.leboncoin.fr/recherche/?category=#{categ_number}&regions=22&location=#{city}"
+      url = URI.encode("https://www.leboncoin.fr/recherche/?category=#{categ_number}&regions=22&location=#{city}")
     end
 
     RestClient.proxy = ENV['PROXY']
