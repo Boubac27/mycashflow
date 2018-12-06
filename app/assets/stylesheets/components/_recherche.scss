@@ -92,7 +92,7 @@ textarea {
       margin-top: 0;
     }
 
-    form {
+    .select_info {
       position: absolute;
       bottom: 0;
       right: 0;
@@ -139,8 +139,4 @@ textarea {
 
 .fa-heart:hover{
   font-size:20px;
-}
-.select_info {
-  color:$green;
-
 }

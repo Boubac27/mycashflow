@@ -1,2 +1,6 @@
-const container = document.querySelector('.lastresearch');
-container.innerHTML = "<%= j render 'latest_searches', searches: current_user.searches %>";
+function updateLastSearches() {
+  const container = document.querySelector('.last-searches');
+  container.innerHTML = "<%= j render 'latest_searches', searches: current_user.searches %>";
+}
+
+updateLastSearches();

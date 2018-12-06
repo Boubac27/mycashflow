@@ -1,6 +1,10 @@
-<div class="appartment">
+<div class="appartment" data-bc-url="<%= result[:url] %>">
   <div class="appartment-image">
-    <img src="<%= result[:image] %>" alt="">
+    <% if result[:image].present? %>
+      <img src="<%= result[:image] %>" alt="">
+    <% else %>
+      <img src="https://www.housing.bt/assets/default-apartment(copy)-940bd729ea9cdf1a5cc31a6dd1812b2350e00702e2d384208eb4384e1d274ea4.jpg" alt="">
+    <% end %>
   </div>
   <div class="appartment-infos">
     <div class="metrics">
@@ -21,9 +25,11 @@
     <p><%= pluralize(result[:rooms], "chambre") %>, <%= result[:surface] %>m²</p>
 
     <% scraped = "urlscrap=#{result[:url]}&urlimage=#{result[:image]}&price=#{result[:price]}&rendement=#{result[:returns]}&rooms=#{result[:rooms]}&surface=#{result[:surface]}&user_id=#{current_user.id}&lat=#{result[:lat]}&long=#{result[:lng]}&city=#{result[:city]}&zipcode=#{result[:zipcode]}" %>
-    <%= form_tag(favorites_path, method: :post, remote: true) do %>
-      <%= hidden_field_tag :scraped, scraped %>
-      <%= submit_tag "Select", class: "btn btn-warning" %>
-    <% end %>
+    <div class="select_info">
+      <%= form_tag(favorites_path, method: :post, remote: true) do %>
+        <%= hidden_field_tag :scraped, scraped %>
+        <%= submit_tag "Select", class: "btn btn-warning" %>
+      <% end %>
+    </div>
   </div>
 </div>
