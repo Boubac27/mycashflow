@@ -9,7 +9,7 @@
         <label>Rendement brut</label>
       </div>
       <div class="metric">
-        <h2>412 €</h2>
+        <h2><%= number_to_currency(result[:avg_rents].round, format: "%n %u", unit: "€", delimiter: " ", precision: 0) %> / mois</h2>
         <label>Loyer potentiel</label>
       </div>
     </div>
