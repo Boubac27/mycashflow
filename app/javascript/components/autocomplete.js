@@ -6,17 +6,19 @@ const initAutocomplete = () => {
   const searchBox = new google.maps.places.SearchBox(input);
   searchBox.addListener('places_changed', function() {
     const places = searchBox.getPlaces();
+    document.getElementById('city').value = "";
+    document.getElementById('zipcode').value = "";
     if (places.length == 0) {
       return;
     } else {
       places[0]["address_components"].forEach((component) => {
         if (component["types"][0] === 'locality') {
           const textarea_city = document.getElementById('city');
-          textarea_city.innerText = component["long_name"];
+          textarea_city.value = component["long_name"];
         }
         if (component["types"][0] === 'postal_code') {
           const textarea_zipcode = document.getElementById('zipcode');
-          textarea_zipcode.innerText = component["long_name"];
+          textarea_zipcode.value = component["long_name"];
         }
       });
     }
