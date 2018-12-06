@@ -14,13 +14,23 @@ class SearchesController < ApplicationController
     @user = current_user
   end
 
+  def show
+    @search = Search.find(params[:id])
+    scrap_lbc_with(
+      city: @search.city,
+      zipcode: @search.zipcode,
+      budget: @search.budget
+    )
+    @search.update_attributes(last_scrap: DateTime.current)
+  end
+
   def destroy
     @search = Search.find(params[:id])
     @search.destroy
   end
 
   def create
-    scrap_lbc
+    scrap_lbc_with(search_params)
     search = Search.new(search_params)
     search.last_scrap = DateTime.current
     search.user = current_user
@@ -37,8 +47,8 @@ class SearchesController < ApplicationController
 
   private
 
-  def scrap_lbc
-    @results_base = Collecteur.new(search_params).collecter[:prices]
+  def scrap_lbc_with(attributes)
+    @results_base = Collecteur.new(attributes).collecter[:prices]
     @results = @results_base.sort_by { |appt| appt[:returns] }.reverse
     @prices = @results
   end
