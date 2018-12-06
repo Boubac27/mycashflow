@@ -1,67 +1,75 @@
 
  <div class="container container-results-details">
       <p class="text-center">
-A rental investment of <%= @favorite.price.round(0)%> € for a surface of <%= @favorite.surface.round(0)%> m², the potential profitability is to <%= @favorite.rendement.round(2)%> %<br><a class="btn btn-warning" href='<%= @favorite.urlscrap %>'> View Ad</a></p>
+Un investissement locatif de <%= @favorite.price.round(0)%> € pour une surface de <%= @favorite.surface.round(0)%> m², la rentabilité potentielle est de <%= @favorite.rendement.round(2)%>%<br><br><a class="btn btn-warning" href='<%= @favorite.urlscrap %>'> View Ad</a></p>
 
       <div class="cards">
         <div class="card">
-          <div class="card-body" style="background-color: white;">
-            <span class="card-category">Gross rental yield</span>
+          <div class="card-body-one" style="background-color: white;">
+            <span class="card-category">Rendement brut</span>
             <div class="card-description">
               <br>
               <p>
-The gross yield is the simplest to determine, and for good reason: it does not take into account the rental charges paid by the lessor or its taxation. Therefore, it is sufficient to report the annual rent at the acquisition price to identify the gross profitability of the real estate investment.</p>
+Le rendement brut est le plus simple à déterminer, et ce pour une bonne raison. l ne tient pas compte des charges locatives payées par le bailleur ni de sa taxation. Par conséquent, il suffit de déclarer le loyer annuel au prix d’acquisition pour identifier la rentabilité brute de l’investissement immobilier.</p>
                             <p>
-<strong>Example of calculating the gross yield:</strong> an investor leases an apartment at a monthly rent of 800 euros including charges. He paid his real estate purchase 200,000 euros, including acquisition costs. The gross profitability of the property is therefore:
+<strong>Exemple de calcul du rendement brut:</strong> un investisseur loue un appartement moyennant un loyer mensuel de 800 euros charges comprises. Il a payé son achat immobilier 200 000 euros, frais d'acquisition inclus. La rentabilité brute de la propriété est donc :
+</p>
+      <p class="exemple">(800 x 12/200 000) x 100 = 4,80%</p>
 
-(800x12 / 200,000) x 100 = 4.80%.</p>
-
-            <div class="yield"><strong>Potential Yield : <%= @favorite.rendement.round(2) %></strong></div>
+            <div class="yield"><strong>Rendement potentiel : <%= @favorite.rendement.round(2) %></strong></div>
             </div>
           </div>
         </div>
         <div class="card">
           <div class="card-body" style="background-color: white;">
-            <span class="card-category">Net rental yield </span>
+            <span class="card-category">Rendement locatif net </span>
             <div class="card-description">
               <br>
               <p>
-To go further, investors must be interested in the profitability of their rental taking into account the costs and charges they must bear as such, such as property tax.</p>
+Pour aller plus loin, les investisseurs doivent s’intéresser à la rentabilité de leur location en tenant compte des coûts et charges qu’ils doivent supporter tels que l’impôt sur la propriété.</p>
 
-            <div class="ask1">
+            <div class="ask">
           <%= simple_form_for @favorite do |f| %>
-              <%= f.input :property_taxe %>
-              <%= f.input :insurance %>
-              <%= f.input :total_rent %>
-              <%= f.input :work %>
-              <%= f.button :submit, "Simulator", class: "btn btn-warning" %>
+              <%= f.label :label_taxes_foncieres, "Taxes foncières" %> <br>
+              <%= f.input_field :property_taxe %>€/an
+              <%= f.label :label_assurance, "Assurance" %> <br>
+              <%= f.input_field :insurance %>€/an
+              <%= f.label :label_loyer, "Loyer (estimé)" %> <br>
+              <%= f.input_field :total_rent %>€/mois
+              <%= f.label :label_travaux, "Travaux (estimé)" %> <br>
+              <%= f.input_field :work %>€ <hr>
+              <%= f.button :submit, "Calculer", class: "btn btn-warning" %>
             <% end %>
-            <div class="rdt"><strong>Potential Net Rental Yield : <%= @favorite.net_rental_yield.round(2) %></strong></div>
             </div>
-
-
-            </div>
+            <br>
+            <br>
+            <div class="rdt1"><strong>Rendement potentiel net : <%= @favorite.net_rental_yield.round(2) %></strong></div>
           </div>
+
         </div>
+            </div>
         <div class="card">
           <div class="card-body" style="background-color: white;">
-            <span class="card-category">Net tax return</span>
+            <span class="card-category">CashFlow</span>
             <div class="card-description">
               <br>
+              <p>Le Cashflow correspond au rendement net imposable</p>
               <p>
-To calculate the return on your investment as closely as possible, the lessor must also take into consideration his taxes. This is the principle of "net-net" return or net of taxation: it takes into account the tax burden borne by the investor, that is to say the taxation of property income.</p>
+Pour calculer le retour sur investissement le plus fidèlement possible, le bailleur doit également tenir compte de ses impôts (ceux-ci ne seront pas calculés ici). C’est le principe du rendement «net-net» ou net d’imposition. Il tient compte de la charge fiscale supportée par l’investisseur, c’est-à-dire de l’imposition des revenus de la propriété.</p>
 
             <div class="ask">
         <%= simple_form_for @favorite do |f| %>
-              <%= f.input :monthy_loan %>
-              <%= f.input :rental_charges %>
-              <%= f.input :total_rent %>
-              <%= f.button :submit, "Simulator", class: "btn btn-warning" %>
+              <%= f.label :label_pret, "Remboursement de crédit" %> <br>
+              <%= f.input_field :monthy_loan %> €/mois
+              <%= f.label :label_charges, "Frais de location" %> <br>
+              <%= f.input_field :rental_charges %> €/an
+              <%= f.label :label_loyer, "Loyer(estimé)" %> <br>
+              <%= f.input_field :total_rent %> €/mois <hr>
+              <%= f.button :submit, "Calculer", class: "btn btn-warning" %>
             <% end %>
-
-        <div class="rdt1"><strong>Potential Net Tax Return : <%= @favorite.net_taxe_return.round(2) %></strong></div>
+            <br>
         </div>
-      </div>
+      <div class="rdt"><strong> Pententiel Cashflow : <%= @favorite.net_taxe_return.round(2) %></strong></div>
     </div>
   </body>
 </html>

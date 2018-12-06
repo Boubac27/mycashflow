@@ -65,12 +65,12 @@ class FavoritesController < ApplicationController
       :total_rent,
       :work,
       :city,
-      :urlscrap
+      :urlscrap,
+      :avg_rents
     )
   end
 
   def index_params
-    params.require(:favorites).permit(:price, :city)
+    params.require(:favorites).permit(:price, :city, :avg_rents)
   end
 end
-
