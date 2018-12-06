@@ -6,8 +6,9 @@
       body{
         background-color:#E5E5E5;
         text-align:center;
+        border:solid 1px black;
       }
-      h1,h2{
+      h1,h2,h3,h4{
         color:#ff7b00;
       }
       li{
@@ -38,25 +39,32 @@
         border-radius: 5px;
         background-color:white;
         box-shadow:1px 1px 1px black;
+        transition-property:transform;
+        transition-duration:1s;
       }
       .annonce:hover{
-        height: 252px;
-        width: 702px;
-        box-shadow:2px 2px 2px black;
+        transform: translateX(50px);
+        box-shadow:3px 3px 3px black;
       }
       .description{
         flex: 0 0 auto;
         text-align: left;
         padding-bottom: 25px;
       }
+      .logo img{
+        display: -webkit-box;
+        height:100px;
+        width:100px;
+      }
+      #header {
+        display:flex;
+        text-align:-webkit-center;
+        border-bottom:solid 1px black;
+      }
     </style>
   </head>
 
   <body>
-    <img src="http://localhost:3000/logo.png" alt="logo MyCashFlow">
     <%= yield %>
-    <footer>
-      <img src="../../assets/images/logo.png" alt="logo MyCashFlow">
-    </footer>
   </body>
 </html>
