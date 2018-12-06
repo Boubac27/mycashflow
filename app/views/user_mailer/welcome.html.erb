@@ -13,7 +13,11 @@
     <% @annonces.each do |annonce| %>
       <div class="annonce">
         <a href="<%= annonce[:url] %>">
-          <img src="<%= annonce[:image] %>">
+          <% if result[:image].present? %>
+            <img src="<%= result[:image] %>" alt="">
+          <% else %>
+            <img src="https://www.housing.bt/assets/default-apartment(copy)-940bd729ea9cdf1a5cc31a6dd1812b2350e00702e2d384208eb4384e1d274ea4.jpg" alt="">
+          <% end %>
         </a>
         <div class="description">
           <div class="metrics">
