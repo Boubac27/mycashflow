@@ -1,0 +1,43 @@
+.searches-title {
+  text-align: center;
+  color: #555;
+  padding: 15px 0;
+  margin: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.searchcard {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+  position: relative;
+}
+
+.searchcard-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.searchcard:hover {
+  background: #eaeaea;
+}
+
+.searchcity h5 {
+  font-weight: bold;
+}
+
+.searchbudget {
+}
+
+.searchdate p {
+  font-size: 15px;
+}
+
+.searchdelete {
+  position: absolute;
+  top: 10px;
+  font-size: 17px;
+  right: 10px;
+  color: lighten($orange, 10%);
+}

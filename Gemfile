@@ -19,6 +19,8 @@ gem 'nokogiri'
 gem 'rest-client'
 gem 'awesome_print'
 gem "geocoder"
+gem 'rails-i18n', '~> 5.1'
+gem 'devise-i18n'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

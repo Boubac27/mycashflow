@@ -1,34 +1,35 @@
-<div class="appartement" style="background-color: white;" data-bc-url="<%= result[:url] %>">
-  <a href='<%= result[:url] %>'>
-    <% if result[:image].nil? %>
-      <div class="appt_image"></div>
+<div class="appartment" data-bc-url="<%= result[:url] %>">
+  <div class="appartment-image">
+    <% if result[:image].present? %>
+      <img src="<%= result[:image] %>" alt="">
     <% else %>
-      <div class="appt_image" style="background-image: url('<%= result[:image] %>');"></div>
+      <img src="https://www.housing.bt/assets/default-apartment(copy)-940bd729ea9cdf1a5cc31a6dd1812b2350e00702e2d384208eb4384e1d274ea4.jpg" alt="">
     <% end %>
-  </a>
-  <div class="parametres">
-    <p> Price: <%= number_to_currency(result[:price], format: "%n %u", unit: "€", delimiter: " ", precision: 0) %></p>
-
-    <div>
-      <% if user_signed_in? %>
-        <h4>Potential yield : <%= result[:returns].round(2) %> %</h4>
-      <% end %>
+  </div>
+  <div class="appartment-infos">
+    <div class="metrics">
+      <div class="metric main">
+        <h2 class="green"><%= result[:returns].round(2) %> %</h2>
+        <label>Rendement brut</label>
+      </div>
+      <div class="metric">
+        <h2><%= number_to_currency(result[:avg_rents].round, format: "%n %u", unit: "€", delimiter: " ", precision: 0) %> / mois</h2>
+        <label>Loyer potentiel</label>
+      </div>
     </div>
-    <p> Rooms: <%= result[:rooms] %></p>
-    <p> Surface : <%= result[:surface] %> m² </p>
+
+    <hr>
+
+    <h4><%= number_to_currency(result[:price], format: "%n %u", unit: "€", delimiter: " ", precision: 0) %></h4>
+    <h5><%= result[:subject] %></h5>
+    <p><%= pluralize(result[:rooms], "chambre") %>, <%= result[:surface] %>m²</p>
 
     <% scraped = "urlscrap=#{result[:url]}&urlimage=#{result[:image]}&price=#{result[:price]}&rendement=#{result[:returns]}&rooms=#{result[:rooms]}&surface=#{result[:surface]}&user_id=#{current_user.id}&lat=#{result[:lat]}&long=#{result[:lng]}&city=#{result[:city]}&zipcode=#{result[:zipcode]}" %>
-
     <div class="select_info">
-
       <%= form_tag(favorites_path, method: :post, remote: true) do %>
         <%= hidden_field_tag :scraped, scraped %>
-        <%= submit_tag :select, class: "btn btn-warning" %>
+        <%= submit_tag "Select", class: "btn btn-warning" %>
       <% end %>
-
     </div>
-
   </div>
 </div>
-
-

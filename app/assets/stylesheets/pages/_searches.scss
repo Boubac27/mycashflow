@@ -1,0 +1,39 @@
+.main-container {
+  display: flex;
+  min-height: calc(100vh - 70px);
+
+  .last-searches {
+    flex: 0 0 300px;
+    background: white;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    height: calc(100vh - 70px);
+    overflow: scroll;
+  }
+
+  .current-search {
+    flex: 1 1 auto;
+    height: calc(100vh - 70px);
+    overflow: scroll;
+  }
+
+  .form-inline {
+    display: flex;
+    padding: 15px;
+  }
+
+  #zone {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+  }
+
+  #budget {
+    margin-right: 20px;
+  }
+
+  #pac-input {
+    flex: 1 1 auto;
+    margin-right: 20px;
+    margin-left: 5px;
+  }
+}
