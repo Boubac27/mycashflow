@@ -6,11 +6,10 @@
     <h1></h1>
 </div>
 
-  <div class="page">
-    <p>Bonjour Madame, Monsieur</p>
-    <p>Vous-avez souhaité recevoir une alterte ponctuelle concernant votre recherche d'investissements immobilier locatif</p>
-  <p>Votre trouvez ci-dessous les nouvelles recherches datant de ce jour.</p>
-  <p>Merci de votre confiance.</p>
+<h2>Bonjour</h2>
+
+<h3>Nous avons trouvé <%= @annonces.count %> annonce(s) qui pourraient vous intéresser</h3>
+
 
 </div>
 <ul>
@@ -18,29 +17,36 @@
 
     <% @annonces.each do |annonce| %>
       <div class="annonce">
-        <a href="<%= annonce[:url] %>"><img src="<%= annonce[:image] %>"></a>
-          <div class="description">
-            <h4>Rendement brut: <%= annonce[:returns].round(2) %>%</h4>
-            <p>Prix: <%= annonce[:price] %> €</p>
-            <p>Pièces: <%= annonce[:rooms] %></p>
-            <p>Surface: <%= annonce[:surface] %> m²</p>
-            <p>Ville: <%= annonce[:city] %></p>
+        <a href="<%= annonce[:url] %>">
+          <% if result[:image].present? %>
+            <img src="<%= result[:image] %>" alt="">
+          <% else %>
+            <img src="https://www.housing.bt/assets/default-apartment(copy)-940bd729ea9cdf1a5cc31a6dd1812b2350e00702e2d384208eb4384e1d274ea4.jpg" alt="">
+          <% end %>
+        </a>
+        <div class="description">
+          <div class="metrics">
+            <div class="metric main">
+              <h2 class="green"><%= annonce[:returns].round(2) %> %</h2>
+              <label>Rendement brut</label>
+            </div>
+            <div class="metric">
+              <h2><%= number_to_currency(annonce[:avg_rents].round, format: "%n %u", unit: "€", delimiter: " ", precision: 0) %> / mois</h2>
+              <label>Loyer potentiel</label>
+            </div>
           </div>
-        <li>
-          <%= annonce[:price]     %>
-          <%= annonce[:url]       %>
-          <%= annonce[:image]     %>
-          <%= annonce[:rooms]     %>
-          <%= annonce[:surface]   %>
-          <%= annonce[:lat]       %>
-          <%= annonce[:lng]       %>
-          <%= annonce[:avg_rents] %>
-          <%= annonce[:returns]   %>
-          <%= annonce[:precision] %>
-          <%= annonce[:city] %>
-        </li>
+          <hr>
+          <h4><%= number_to_currency(annonce[:price], format: "%n %u", unit: "€", delimiter: " ", precision: 0) %></h4>
+          <p><%= pluralize(annonce[:rooms], "chambre") %>, <%= annonce[:surface] %>m², à <%= annonce[:city] %></p>
+        </div>
+        <% scraped = "urlscrap=#{annonce[:url]}&urlimage=#{annonce[:image]}&price=#{annonce[:price]}&rendement=#{annonce[:returns]}&rooms=#{annonce[:rooms]}&surface=#{annonce[:surface]}&user_id=#{@user.id}&lat=#{annonce[:lat]}&long=#{annonce[:lng]}&city=#{annonce[:city]}&zipcode=#{annonce[:zipcode]}" %>
+        <div class="select_info">
+          <form method="post" action="http://localhost:3000/favorites">
+            <input type="hidden" value="<%= scraped %>" name="scraped">
+            <button class="btn btn-warning">Selectionner</button>
+          </form>
+        </div>
       </div>
-
     <% end %>
     <p>L'équipe MyCashFlow</p>
   </div>

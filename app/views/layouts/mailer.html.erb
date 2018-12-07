@@ -2,69 +2,95 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <style>
-      body{
-        background-color: white;
+
+
+    <style type="text/css">
+      body {
+        background-color: #f7f7f7;
+        font-family: 'Open Sans';
+        text-align:center;
+        font-size: 18px;
       }
-      h1{
-        color:#ff7b00;
+      .btn {
+        cursor: pointer;
+        color: #fff;
+        background-color: #E67E22;
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: normal;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        padding: 6px 12px;
+        font-size: 18px;
+        line-height: 1.42857;
+        border-radius: 2px;
+        user-select: none;
+        border-color: #d67118;
       }
-      h2,h3,h4{
-        color:#ff7b00;
+      h4 {
+        font-size:23px;
+        margin: 15px 0;
       }
-      li{
-        display:none;
+      h1,h2,h3,h4{
+        color: #444;
       }
       img{
         padding: 10px;
         margin: 10px;
-        flex: 0 0 auto;
-        background-size: cover;
-        background-repeat: no-repeat;
-        width: 250px;
-        height: 200px;
-      }
 
-      .all{
-        background-color: #f7f7f7;
-        position: absolute;
-        align-items: center;
-        margin: auto;
-        margin: center;
-        margin-left: 200px;
-        width: 1000px;
-        width: 1000px;
+        border-radius: 3px;
+        box-shadow:2px 2px 2px rgba(0, 0, 0, 0.1);
+        height: 200px;
+        width: 200px;
+        object-fit: cover;
       }
-      #mail{
-        text-align:-webkit-center;
+      .logo img{
+        height:100px;
+        width:100px;
+      }
+      #header {
+        margin: 0 auto;
+      }
+      .select_info {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
       }
       .annonce{
-        margin: 15px 15px;
-        display: flex;
-        justify-content: space-around;
-        align-items: justify-content;
+
         position: relative;
         width: 700px;
-        border-radius: 5px;
-        background-color:white;
-        transition-property:transform;
-        transition-duration:1s;
+        display: flex;
+        padding: 15px;
+        margin: 15px auto;
+        background-color: white;
+        color: #444;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+        border-radius: 3px;
       }
 
       .description{
-        flex: 0 0 auto;
+        flex: 1 1 auto;
         text-align: left;
+        position: relative;
         padding-bottom: 25px;
+        margin-left: 15px;
       }
-      .logo img{
-        background-color: white;
-        display: -webkit-box;
-        height:74px;
-        width: 135px;
+
+      .description .metrics {
+        display: flex;
       }
-      #header {
-        text-align:-webkit-center;
-        margin: 0 auto;
+      .metric {
+        margin-right: 60px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      }
+      .description .green {
+        color: #32B796;
+        font-weight: 500;
+        line-height: 1.1;
       }
 
       .page{

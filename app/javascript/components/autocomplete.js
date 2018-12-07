@@ -1,9 +1,15 @@
 const initAutocomplete = () => {
   const input = document.getElementById('pac-input');
 
+
   if (input == null) { return }
 
-  const searchBox = new google.maps.places.SearchBox(input);
+  const searchBox = new google.maps.places.Autocomplete(document.getElementById('pac-input'), {
+    types: '(regions)',
+    componentRestrictions: {
+        country: 'fr'
+    }
+  });
   searchBox.addListener('places_changed', function() {
     const places = searchBox.getPlaces();
     document.getElementById('zipcode').value = "";
