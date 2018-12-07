@@ -1,11 +1,43 @@
-.container-results-details {
-    position: absolute;
-    top: 90px;
-    left: 173px;
+.section {
+  background: white;
+  padding: 15px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  margin: 25px 0;
 
-  .cards {
-    // display: flex;
+  hr {
+    border: 1px solid #eeeeee;
   }
+
+  .metric {
+    text-align: center;
+    font-size: 1.2em;
+    color: $orange;
+  }
+
+  .detail-appartment {
+    display: flex;
+    position: relative;
+
+    .appartment-image {
+      margin-right: 30px;
+    }
+
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 3px;
+      object-fit: cover;
+    }
+  }
+
+  .link-appartment {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+  }
+}
+
+.container-results-details {
   .card {
     flex: 1 1 auto;
     margin: 10px;
@@ -23,7 +55,7 @@
   }
 
   .card-body-one {
-    height: 480px;
+    // height: 480px;
     background-size: cover;
     color: gray;
     position: relative;
@@ -46,7 +78,7 @@
 }
   }
   .card-description {
-    position: absolute;
+    // position: absolute;
   }
 
 
