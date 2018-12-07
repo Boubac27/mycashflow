@@ -22,9 +22,9 @@
 
     <h4><%= number_to_currency(result[:price], format: "%n %u", unit: "€", delimiter: " ", precision: 0) %></h4>
     <h5><%= result[:subject] %></h5>
-    <p><%= pluralize(result[:rooms], "chambre") %>, <%= result[:surface] %>m²</p>
+    <p><%= pluralize(result[:rooms], "pièce") %>, <%= result[:surface] %>m²</p>
 
-    <% scraped = "urlscrap=#{result[:url]}&urlimage=#{result[:image]}&price=#{result[:price]}&rendement=#{result[:returns]}&rooms=#{result[:rooms]}&surface=#{result[:surface]}&user_id=#{current_user.id}&lat=#{result[:lat]}&long=#{result[:lng]}&city=#{result[:city]}&zipcode=#{result[:zipcode]}" %>
+    <% scraped = "urlscrap=#{result[:url]}&urlimage=#{result[:image]}&price=#{result[:price]}&rendement=#{result[:returns]}&rooms=#{result[:rooms]}&surface=#{result[:surface]}&user_id=#{current_user.id}&lat=#{result[:lat]}&long=#{result[:lng]}&city=#{result[:city]}&zipcode=#{result[:zipcode]}&avg_rent=#{result[:avg_rents]}" %>
     <div class="select_info">
       <%= form_tag(favorites_path, method: :post, remote: true) do %>
         <%= hidden_field_tag :scraped, scraped %>

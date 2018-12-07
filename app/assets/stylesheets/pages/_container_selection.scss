@@ -1,7 +1,6 @@
 .main-container-selection {
   width: 100%;
   background-size:700px;
-
 }
 
 #map {
@@ -12,8 +11,4 @@
 .sticky {
   position: sticky !important; /* !important to override Gmaps inline CSS */
   top: 70px !important;
-}
-.rowcards {
-  display:flex;
-  justify-content: space-around;
 }
