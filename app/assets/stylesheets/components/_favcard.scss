@@ -1,68 +1,36 @@
+.favselection .appartment {
+  .metric.main {
+    margin-right: 60px;
+    h2 {
+      font-size: 31px;
+    }
+  }
+  .metric {
+    margin-right: 0px;
 
-.favcard {
-    height: 250px;
-    width: 800px;
-    background-color: white;
-    display: flex;
-    position: relative;
-    margin-bottom: 10px;
-    font-size:18px;
-    background-color: white;
-    color: #444;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
-    border-radius: 3px;
+    h2 {
+      font-size: 25px;
+    }
+  }
 }
-.favrend {
-  position: absolute;
-  top:20px;
-  left: 320px;
-}
-.favprice {
-position: absolute;
-  top:50px;
-  left: 320px;
-}
-.favsurface {
-position: absolute;
-  top:80px;
-  left: 320px;
-}
-.favroom {
-position: absolute;
-  top:110px;
-  left: 320px;
-}
-.favimage {
-  position: absolute;
-  left:10px;
-  top:20px;
-  height: 200px;
-  width:300px;
-}
-.favtrash {
+
+#remove-favorite {
   position: absolute;
   bottom:25px;
   right:25px;
   color:$orange;
 }
-.favtrash:hover{
+
+#remove-favorite:hover{
   font-size:20px;
 }
-.faveyes{
+
+#show-favorite {
   position: absolute;
   bottom:25px;
   right:70px;
   color:$orange;
 }
-.faveyes:hover{
+#show-favorite:hover{
   font-size:20px;
-}
-.favselection {
-  justify-content: space-around;
-  align-items:center;
-}
-.favcity {
-  position: absolute;
-  top:150px;
-  left: 320px;
 }

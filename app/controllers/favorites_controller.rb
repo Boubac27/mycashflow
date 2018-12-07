@@ -29,7 +29,7 @@ class FavoritesController < ApplicationController
       case key
       when "price", "rendement", "lat", "lng"
         value = value.to_f
-      when "rooms", "surface", "user_id"
+      when "rooms", "surface", "user_id", "avg_rent"
         value = value.to_i
       end
       hash_fav[key.to_sym] = value

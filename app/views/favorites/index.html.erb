@@ -1,64 +1,64 @@
-<div class="main-container-selection">
-  <div class="row">
-    <div class="col-xs-12 col-md-6 rowcards">
+<div class="container-fluid">
+  <div class="main-container-selection">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 rowcards">
 
-      <div class="favselection">
+        <div class="favselection">
 
 
-        <h3 class="fav-title">Ma selection</h3>
-        <% @favorites.each do |f| %>
-          <div class="favcard">
+          <h3 class="fav-title">Ma selection</h3>
+          <% @favorites.each do |f| %>
+            <div class="appartment">
+              <div class="appartment-image">
+                <% if f.urlimage.present? %>
+                  <img src="<%= f.urlimage %>" alt="">
+                <% else %>
+                  <img src="https://www.housing.bt/assets/default-apartment(copy)-940bd729ea9cdf1a5cc31a6dd1812b2350e00702e2d384208eb4384e1d274ea4.jpg" alt="">
+                <% end %>
+              </div>
+              <div class="appartment-infos">
+                <div class="metrics">
+                  <div class="metric main">
+                    <h2 class="green"><%= f.rendement.round(2) %> %</h2>
+                    <label>Rendement brut</label>
+                  </div>
+                  <div class="metric">
+                    <h2><%= number_to_currency(f.avg_rent, format: "%n %u", unit: "€", delimiter: " ", precision: 0) %> / mois</h2>
+                    <label>Loyer potentiel</label>
+                  </div>
+                </div>
 
-            <div class="favrend">
-              <p>Rendement potentiel <%= f.rendement.round(2)%>%</p>
+                <hr>
+
+                <h4><%= number_to_currency(f.price, format: "%n %u", unit: "€", delimiter: " ", precision: 0) %></h4>
+                <p><%= f.rooms %> pièces, <%= f.surface %>m²</p>
+                <p><%= f.city %></p>
+
+                <%= link_to '<i class="fas fa-eye faveyes"></i>'.html_safe, favorite_path(f), id: 'show-favorite' %>
+
+                <%= link_to '<i class="fas fa-trash-alt favtrash"></i>'.html_safe, favorite_path(f), method: :delete, data: {:confirm => 'Confirmez la suppression ?'}, id: 'remove-favorite' %>
+              </div>
             </div>
-            <div class="favprice">
-              <p>Prix de vente: <%= number_to_currency(f.price, unit: "€", precision: 0, delimiter: " ", format: "%n %u")%></p>
-            </div>
 
-            <div class="favsurface">
-              <p>Surface :<%= f.surface%> m2 </p>
-            </div>
 
-            <div class="favroom">
-             <p> <%= pluralize(f.rooms, "pieces")%> </p>
-            </div>
 
-            <div class="favcity">
-              <p> <%= f.city%> </p>
-            </div>
 
-            <div>
-              <%= link_to '<i class="fas fa-eye faveyes"></i>'.html_safe, favorite_path(f)%>
-            </div>
 
-            <div>
-              <%= link_to '<i class="fas fa-trash-alt favtrash"></i>'.html_safe, favorite_path(f), method: :delete, data: {:confirm => 'Confirmez la suppression ?'} %>
 
-            </div>
 
-            <div>
-              <% if f.urlimage.present? %>
-               <%= image_tag f.urlimage, class: "favimage"%>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
+
+
+          <% end %>
+        </div>
+
       </div>
+      <div class="col-xs-12 col-md-6 sticky">
+        <div
+          id="map"
+          data-markers=" <%= @markers.to_json %>"
+        ></div>
 
-    </div>
-    <div class="col-xs-12 col-md-6 sticky">
-      <div
-        id="map"
-        data-markers=" <%= @markers.to_json %>"
-      ></div>
-
+      </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-
