@@ -1,7 +1,7 @@
 
  <div class="container container-results-details">
       <p class="text-center">
-Un investissement locatif de <%= @favorite.price.round(0)%> € pour une surface de <%= @favorite.surface.round(0)%> m², la rentabilité potentielle est de <%= @favorite.rendement.round(2)%>%<br><br><a class="btn btn-warning" href='<%= @favorite.urlscrap %>'> View Ad</a></p>
+Un investissement locatif de <%= @favorite.price.round(0)%> € pour une surface de <%= @favorite.surface.round(0)%> m², la rentabilité potentielle est de <%= @favorite.rendement.round(2)%>%<br><br><a class="btn btn-warning" href='<%= @favorite.urlscrap %>'> Voir annonce</a></p>
 
       <div class="cards">
         <div class="card">
@@ -69,7 +69,7 @@ Pour calculer le retour sur investissement le plus fidèlement possible, le bail
             <% end %>
             <br>
         </div>
-      <div class="rdt"><strong> Pententiel Cashflow : <%= @favorite.net_taxe_return.round(2) %></strong></div>
+      <div class="rdt"><strong> Pententiel Cashflow : <%= @favorite.net_taxe_return.round(0) %></strong></div>
     </div>
   </body>
 </html>

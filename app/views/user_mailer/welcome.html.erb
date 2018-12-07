@@ -1,26 +1,30 @@
-<div id="header">
+<div class="all">
+<div class="header">
   <div class="logo">
-     <a href="http://www.mycashflow.me"><img src="<%= ENV['DOMAIN'] %>/logo.png" alt="logo MyCashFlow"></a>
+  <a href="http://www.mycashflow.me"><img src="<%= ENV['DOMAIN'] %>/logo.png" alt=""></a>
   </div>
-    <h1>MyCashFlow</h1>
+    <h1></h1>
 </div>
-<h2>Hello</h2>
 
-<h3>
-   Here are your new ads
-</h3>
+  <div class="page">
+    <p>Bonjour Madame, Monsieur</p>
+    <p>Vous-avez souhaité recevoir une alterte ponctuelle concernant votre recherche d'investissements immobilier locatif</p>
+  <p>Votre trouvez ci-dessous les nouvelles recherches datant de ce jour.</p>
+  <p>Merci de votre confiance.</p>
 
-
+</div>
 <ul>
   <div id="mail">
+
     <% @annonces.each do |annonce| %>
       <div class="annonce">
         <a href="<%= annonce[:url] %>"><img src="<%= annonce[:image] %>"></a>
           <div class="description">
-            <h4>potential yield: <%= annonce[:returns].round(2) %>%</h4>
-            <p>price: <%= annonce[:price] %> €</p>
-            <p>rooms: <%= annonce[:rooms] %></p>
-            <p>surface: <%= annonce[:surface] %> m²</p>
+            <h4>Rendement brut: <%= annonce[:returns].round(2) %>%</h4>
+            <p>Prix: <%= annonce[:price] %> €</p>
+            <p>Pièces: <%= annonce[:rooms] %></p>
+            <p>Surface: <%= annonce[:surface] %> m²</p>
+            <p>Ville: <%= annonce[:city] %></p>
           </div>
         <li>
           <%= annonce[:price]     %>
@@ -33,11 +37,13 @@
           <%= annonce[:avg_rents] %>
           <%= annonce[:returns]   %>
           <%= annonce[:precision] %>
+          <%= annonce[:city] %>
         </li>
       </div>
 
     <% end %>
+    <p>L'équipe MyCashFlow</p>
   </div>
 </ul>
-
-
+</div>
+</div>
