@@ -3,9 +3,16 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="Mycashflow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mycashflow.me" />
+    <meta property="og:image" content='<%= image_url "/assets/images/banner9.jpg", size: "1200x630" %>' />
+    <meta property="og:description" content="Trouvez votre investissement locatif" />
+    <meta property="og:site_name" content="Mycashflow" />
     <title>My Cash Flow</title>
-    <link rel="icon" href="/favicon.ico" />
 
+    <%= favicon_link_tag %>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
