@@ -1,7 +1,7 @@
 
  <div class="container container-results-details">
       <p class="text-center">
-Un investissement locatif de <%= @favorite.price.round(0)%> € pour une surface de <%= @favorite.surface.round(0)%> m², la rentabilité potentielle est de <%= @favorite.rendement.round(2)%>%<br><br><a class="btn btn-warning" href='<%= @favorite.urlscrap %>'> Voir annonce</a></p>
+Un investissement locatif de <%= @favorite.price.round(0)%> € pour une surface de <%= @favorite.surface.round(0)%> m², la rentabilité potentielle est de <%= @favorite.rendement.round(2)%>%<br><br><a target="_blank" class="btn btn-warning" href='<%= @favorite.urlscrap %>'> Voir annonce</a></p>
 
       <div class="cards">
         <div class="card">
@@ -9,27 +9,26 @@ Un investissement locatif de <%= @favorite.price.round(0)%> € pour une surface
             <span class="card-category">Rendement brut</span>
             <div class="card-description">
               <br>
+              <p>Le rendement brut est le plus simple à déterminer, et ce pour une bonne raison. l ne tient pas compte des charges locatives payées par le bailleur ni de sa taxation. Par conséquent, il suffit de déclarer le loyer annuel au prix d’acquisition pour identifier la rentabilité brute de l’investissement immobilier.</p>
               <p>
-Le rendement brut est le plus simple à déterminer, et ce pour une bonne raison. l ne tient pas compte des charges locatives payées par le bailleur ni de sa taxation. Par conséquent, il suffit de déclarer le loyer annuel au prix d’acquisition pour identifier la rentabilité brute de l’investissement immobilier.</p>
-                            <p>
-<strong>Exemple de calcul du rendement brut:</strong> un investisseur loue un appartement moyennant un loyer mensuel de 800 euros charges comprises. Il a payé son achat immobilier 200 000 euros, frais d'acquisition inclus. La rentabilité brute de la propriété est donc :
-</p>
-      <p class="exemple">(800 x 12/200 000) x 100 = 4,80%</p>
+                <strong>Exemple de calcul du rendement brut:</strong> un investisseur loue un appartement moyennant un loyer mensuel de 800 euros charges comprises. Il a payé son achat immobilier 200 000 euros, frais d'acquisition inclus. La rentabilité brute de la propriété est donc :
+              </p>
+              <p class="exemple">(800 x 12/200 000) x 100 = 4,80%</p>
 
-            <div class="yield"><strong>Rendement potentiel : <%= @favorite.rendement.round(2) %></strong></div>
+            <div class="yield"><strong>Rendement potentiel : <%= @favorite.rendement.round(2) %>%</strong></div>
             </div>
           </div>
         </div>
+
         <div class="card">
           <div class="card-body" style="background-color: white;">
             <span class="card-category">Rendement locatif net </span>
             <div class="card-description">
               <br>
-              <p>
-Pour aller plus loin, les investisseurs doivent s’intéresser à la rentabilité de leur location en tenant compte des coûts et charges qu’ils doivent supporter tels que l’impôt sur la propriété.</p>
+              <p>Pour aller plus loin, les investisseurs doivent s’intéresser à la rentabilité de leur location en tenant compte des coûts et charges qu’ils doivent supporter tels que l’impôt sur la propriété.</p>
 
             <div class="ask">
-          <%= simple_form_for @favorite do |f| %>
+            <%= simple_form_for @favorite do |f| %>
               <%= f.label :label_taxes_foncieres, "Taxes foncières" %> <br>
               <%= f.input_field :property_taxe %>€/an
               <%= f.label :label_assurance, "Assurance" %> <br>
@@ -43,7 +42,10 @@ Pour aller plus loin, les investisseurs doivent s’intéresser à la rentabilit
             </div>
             <br>
             <br>
-            <div class="rdt1"><strong>Rendement potentiel net : <%= @favorite.net_rental_yield.round(2) %></strong></div>
+            <% if @favorite.property_taxe && @favorite.insurance && @favorite.total_rent && @favorite.work %>
+              <div class="rdt1">
+                <strong>Rendement potentiel net : <%= @favorite.net_rental_yield.round(2) %>%</strong></div>
+            <% end %>
           </div>
 
         </div>
@@ -69,7 +71,10 @@ Pour calculer le retour sur investissement le plus fidèlement possible, le bail
             <% end %>
             <br>
         </div>
-      <div class="rdt"><strong> Pententiel Cashflow : <%= @favorite.net_taxe_return.round(0) %></strong></div>
+        <% if @favorite.monthy_loan && @favorite.rental_charges && @favorite.total_rent  %>
+          <div class="rdt"><strong> Pententiel Cashflow : <%= @favorite.net_taxe_return.round(0) %>
+          /mois</strong></div>
+        <% end %>
     </div>
   </body>
 </html>
