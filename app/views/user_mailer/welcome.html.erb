@@ -1,15 +1,20 @@
-<div id="header">
+<div class="all">
+<div class="header">
   <div class="logo">
-     <a href="http://www.mycashflow.me"><img src="<%= ENV['DOMAIN'] %>/logo.png" alt="logo MyCashFlow"></a>
+  <a href="http://www.mycashflow.me"><img src="<%= ENV['DOMAIN'] %>/logo.png" alt=""></a>
   </div>
-    <h1>MyCashFlow</h1>
+    <h1></h1>
 </div>
+
 <h2>Bonjour</h2>
 
 <h3>Nous avons trouvé <%= @annonces.count %> annonce(s) qui pourraient vous intéresser</h3>
 
+
+</div>
 <ul>
   <div id="mail">
+
     <% @annonces.each do |annonce| %>
       <div class="annonce">
         <a href="<%= annonce[:url] %>">
@@ -43,7 +48,8 @@
         </div>
       </div>
     <% end %>
+    <p>L'équipe MyCashFlow</p>
   </div>
 </ul>
-
-
+</div>
+</div>
